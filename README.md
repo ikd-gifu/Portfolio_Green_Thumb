@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# ポートフォリオ
 
-Things you may want to cover:
+## 開発環境
 
-* Ruby version ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x64-mingw32]
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+＊VScode
+＊Ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x64-mingw32]
+＊Rails 6.1.3.2
+＊Git version 2.30.1.windows.1
