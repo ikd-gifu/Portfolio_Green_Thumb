@@ -3,6 +3,7 @@ ja:
     attributes:
       user:
         log_in: ログイン
+        edit: 編集
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -99,11 +100,11 @@ ja:
         currently_waiting_confirmation_for_email: "%{email} の確認待ち"
         leave_blank_if_you_don_t_want_to_change_it: 空欄のままなら変更しません
         title: "%{resource}編集"
-        unhappy: 気に入りません
+        unhappy?: 気に入りませんか？
         update: 更新
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
       new:
-        sign_up: アカウント登録_2
+        sign_up: アカウント登録
       signed_up: アカウント登録が完了しました。
       signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
       signed_up_but_locked: アカウントがロックされているためログインできません。
@@ -123,11 +124,11 @@ ja:
         back: 戻る
         didn_t_receive_confirmation_instructions?: アカウント確認のメールを受け取っていませんか？
         didn_t_receive_unlock_instructions?: アカウントのロック解除方法のメールを受け取っていませんか？
-        forgot_your_password: パスワードを忘れましたか？_1
+        forgot_your_password: パスワードを忘れましたか？
         log_in: ログイン
         sign_in: ログイン
         sign_in_with_provider: "%{provider}でログイン"
-        sign_up: アカウント登録_1
+        sign_up: アカウント登録
       minimum_password_length: "（%{count}字以上）"
     unlocks:
       new:
