@@ -30,7 +30,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 # Bootstrap
-gem 'devise-bootstrap-views', '~> 1.0'
+# gem 'devise-bootstrap-views', '~> 1.0'
+gem 'bootstrap-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
