@@ -19,6 +19,27 @@ textarea {
   text-align: center;
 }
 
+.jumbotron {
+  background-color:transparent !important; 
+  color: #fff;
+  // background:url(5001036_m.jpg)
+  // center no-repeat;
+  // background-size: cover;
+}
+
+.top {
+  // background-image: image-url('5001036_m.jpg');
+  background-image: url(5001036_m.jpg);
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: lighten;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: 0;
+}
+
 .center h1 {
   margin-bottom: 10px;
 }
@@ -63,7 +84,21 @@ p {
   font-weight: bold;
 }
 
+#logo2 {
+  color:yellow;
+}
+
+#logo3 {
+  color:yellow;
+}
+
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+
+.navbar-inverse {
+  color: green;
+  background-color: green;
+  border-color: green;
 }
