@@ -1,9 +1,11 @@
 <% provide(:title, "Top") %>
 
+<%# <body style="background: url(5001036_m.jpg);"> %>
+
 <div  class="top">
   <div class="center jumbotron">
     <h1>Green Thumb</h1>
-    <p>このページは仮のトップページです。</p>
+    <p>園芸作業・資材管理ダイアリー</p>
     <%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-lg btn-primary" %>
     <% if user_signed_in? %> <%# この行を追加する %>
       <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
