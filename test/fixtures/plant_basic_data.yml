@@ -1,21 +1,37 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
+=======
+  user_id: 1
+>>>>>>> gardening-diary
   plant_name: MyString
   plant_breed_name: MyString
   plant_family_name: MyString
   plant_alias: MyString
   plant_scientific_name: MyString
   plant_place_of_origin: MyString
+<<<<<<< HEAD
   characteristics_applications: MyText
   user: one
 
 two:
+=======
+  characteristics_applications: 
+  user: one
+
+two:
+  user_id: 1
+>>>>>>> gardening-diary
   plant_name: MyString
   plant_breed_name: MyString
   plant_family_name: MyString
   plant_alias: MyString
   plant_scientific_name: MyString
   plant_place_of_origin: MyString
+<<<<<<< HEAD
   characteristics_applications: MyText
+=======
+  characteristics_applications: 
+>>>>>>> gardening-diary
   user: two
