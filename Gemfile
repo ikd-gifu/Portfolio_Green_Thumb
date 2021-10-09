@@ -61,3 +61,8 @@ gem 'devise'
 #devise日本語化
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+#API_KEYを環境変数として管理する（Keyを外部流出させないための措置）
+gem 'dotenv-rails'
+#アプリケーション内でHTTPリクエストを投げたい場合に使うクラス
+gem 'httpclient'
