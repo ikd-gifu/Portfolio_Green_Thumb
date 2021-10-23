@@ -1,2 +1,4 @@
 <% provide(:title, @user.id) %>
 <h1><%= @user.id %>のマイページ</h1>
+
+<%= image_tag "http://openweathermap.org/img/wn/#{@current_weather.weather_icon.chop}d@2x.png" %>
