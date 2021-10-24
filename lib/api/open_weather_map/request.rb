@@ -7,8 +7,8 @@ module Api
         @query = {
           id: location_id,
           units: 'metric',
-          appid:
-          'OPEN_WEATHER_MAP_API']
+          lang: 'ja',
+          appid: ENV['OPEN_WEATHER_MAP_API']
         }
       end
 

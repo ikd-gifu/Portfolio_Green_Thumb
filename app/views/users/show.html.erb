@@ -1,4 +1,12 @@
 <% provide(:title, @user.id) %>
 <h1><%= @user.id %>のマイページ</h1>
 
-<%= image_tag "http://openweathermap.org/img/wn/#{@current_weather.weather_icon.chop}d@2x.png" %>
+<% if @current_weather.weather_main == "FALSE" %>
+  <h1><%= @user.id %>の天気情報はありません</h1>
+<% else %>
+  <%= image_tag "http://openweathermap.org/img/wn/#{@current_weather.weather_icon.chop}d@2x.png" %>
+  <h2>天候　<%= @current_weather.weather_description %></h2>
+  <h2>気温　<%= @current_weather.temp %>℃</h2>
+  <h2>湿度　<%= @current_weather.humidity %>％</h2>
+  <h2>気圧　<%= @current_weather.pressure %>hPa</h2>
+<% end %>
