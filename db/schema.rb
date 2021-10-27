@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_21_132253) do
+ActiveRecord::Schema.define(version: 2021_10_27_132535) do
 
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 2021_10_21_132253) do
     t.index ["user_id"], name: "index_plant_basic_data_on_user_id"
   end
 
+  create_table "plant_management_slips", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "plant_name"
+    t.integer "plant_price"
+    t.string "plant_size"
+    t.string "plant_quantity"
+    t.datetime "plant_purchase_date"
+    t.string "plant_purchase_location"
+    t.bigint "plant_basic_datum_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plant_basic_datum_id"], name: "index_plant_management_slips_on_plant_basic_datum_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,10 +73,12 @@ ActiveRecord::Schema.define(version: 2021_10_21_132253) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "location_id", default: "1850147"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "current_weathers", "cities"
   add_foreign_key "plant_basic_data", "users"
+  add_foreign_key "plant_management_slips", "plant_basic_data"
 end

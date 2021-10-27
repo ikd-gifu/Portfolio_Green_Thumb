@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plant_name: MyString
+  plant_price: 1
+  plant_size: MyString
+  plant_quantity: MyString
+  plant_purchase_date: 2021-10-27 22:25:36
+  plant_purchase_location: MyString
+  plant_basic_datum: one
+
+two:
+  plant_name: MyString
+  plant_price: 1
+  plant_size: MyString
+  plant_quantity: MyString
+  plant_purchase_date: 2021-10-27 22:25:36
+  plant_purchase_location: MyString
+  plant_basic_datum: two
