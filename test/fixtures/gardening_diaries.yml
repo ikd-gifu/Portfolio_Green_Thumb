@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_name: MyString
+  implementation_date: 2021-10-28 22:45:50
+  work_content: MyText
+  plant_name: MyString
+  plant_basic_data_id: 1
+  material_name: MyString
+  user: one
+
+two:
+  work_name: MyString
+  implementation_date: 2021-10-28 22:45:50
+  work_content: MyText
+  plant_name: MyString
+  plant_basic_data_id: 1
+  material_name: MyString
+  user: two

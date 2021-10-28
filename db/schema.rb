@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_132535) do
+ActiveRecord::Schema.define(version: 2021_10_28_134549) do
 
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,32 @@ ActiveRecord::Schema.define(version: 2021_10_27_132535) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_id"], name: "index_current_weathers_on_city_id"
+  end
+
+  create_table "gardening_diaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "work_name"
+    t.datetime "implementation_date"
+    t.text "work_content"
+    t.string "plant_name"
+    t.integer "plant_basic_data_id"
+    t.string "material_name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_gardening_diaries_on_user_id"
+  end
+
+  create_table "material_stock_tables", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "material_name"
+    t.integer "material_price"
+    t.string "material_size"
+    t.string "material_quantity"
+    t.datetime "material_purchase_date"
+    t.string "material_purchase_location"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_material_stock_tables_on_user_id"
   end
 
   create_table "plant_basic_data", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -79,6 +105,8 @@ ActiveRecord::Schema.define(version: 2021_10_27_132535) do
   end
 
   add_foreign_key "current_weathers", "cities"
+  add_foreign_key "gardening_diaries", "users"
+  add_foreign_key "material_stock_tables", "users"
   add_foreign_key "plant_basic_data", "users"
   add_foreign_key "plant_management_slips", "plant_basic_data"
 end
