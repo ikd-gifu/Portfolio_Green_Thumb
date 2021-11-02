@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_134549) do
+ActiveRecord::Schema.define(version: 2021_11_02_134146) do
 
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_10_28_134549) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "plant_individual_name"
+    t.integer "material_consumption"
     t.index ["user_id"], name: "index_gardening_diaries_on_user_id"
   end
 
@@ -54,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_10_28_134549) do
     t.string "material_name"
     t.integer "material_price"
     t.string "material_size"
-    t.string "material_quantity"
+    t.integer "material_quantity"
     t.datetime "material_purchase_date"
     t.string "material_purchase_location"
     t.bigint "user_id", null: false
@@ -87,6 +89,8 @@ ActiveRecord::Schema.define(version: 2021_10_28_134549) do
     t.bigint "plant_basic_datum_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cultivation_place"
+    t.string "plant_individual_name"
     t.index ["plant_basic_datum_id"], name: "index_plant_management_slips_on_plant_basic_datum_id"
   end
 
