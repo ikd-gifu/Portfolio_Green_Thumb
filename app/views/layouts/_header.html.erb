@@ -1,10 +1,35 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-header">
+  <div class="container">
     <%= link_to "Green Thumb", root_path, id: "logo" %>
+    <!--<%= link_to "植物基本データ", "#", id: "logo-center" %>
+    <%= link_to "植物管理票", "#", id: "logo-center" %>
+    <%= link_to "資材", "#", id: "logo-center" %>
+    <%= link_to "園芸日誌", "#", id: "logo-center" %>-->
     <nav>
       <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to "植物基本データ", "#", id: "logo-center" %></li>
+        <li><%= link_to "植物管理票", "#", id: "logo-center" %></li>
+        <li><%= link_to "資材", "#", id: "logo-center" %></li>
+        <li><%= link_to "園芸日誌", "#", id: "logo-center" %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= current_user.name %><b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" id="dropdown-color">
+            <li><%= link_to "マイページ", current_user %></li>
+            <li><%= link_to "アカウント", edit_user_registration_path %></li>
+            <li><%= link_to "Top", root_path %></li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </li>
+      <% else %>
         <li><%= link_to "Top", root_path, id: "logo2" %></li>
         <li><%= link_to "Log in", new_user_session_path, id: "logo3" %></li>
+      <% end %>
       </ul>
     </nav>
   </div>
