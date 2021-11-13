@@ -1,2 +1,20 @@
 <% provide(:title, 'PlantBasicData') %>
 <h1>植物基本情報一覧</h1>
+
+<div class="col-md-10 col-md-offset-1">
+  <%= will_paginate %>
+  <table class="table table-condensed table-hover" id="table-users">
+    <thead>
+      <tr>
+        <th><%= "植物名" %></th>
+      </tr>
+    </thead>
+
+    <% @plant_basic_data.each do |plant_basic_datum| %>
+      <tr>
+        <td><%= link_to plant_basic_datum.plant_name, plant_basic_datum %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate %>
+</div>

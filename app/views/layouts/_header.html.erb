@@ -8,7 +8,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-        <li><%= link_to "植物基本データ", "#", id: "logo-center" %></li>
+        <li><%= link_to "植物基本情報", user_plant_basic_data_path(current_user), id: "logo-center" %></li>
         <li><%= link_to "植物管理票", "#", id: "logo-center" %></li>
         <li><%= link_to "資材", "#", id: "logo-center" %></li>
         <li><%= link_to "園芸日誌", "#", id: "logo-center" %></li>
