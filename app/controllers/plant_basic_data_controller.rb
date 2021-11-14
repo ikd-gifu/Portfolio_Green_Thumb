@@ -1,23 +1,24 @@
 class PlantBasicDataController < ApplicationController
-
+  # before_action :set_user, only: [:new]
 
   def index
     # @plant_basic_data = PlantBasicDatum.where(user_id: params[:id])
-    @plant_basic_data = PlantBasicDatum.where(user_id: params[:id]).paginate(page: params[:page], per_page: 1)
+    @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id]).paginate(page: params[:page], per_page: 3)
   end
 
   def show
   end
 
   def new
-    @plant_basic_datum = PlantBasicDatum.new
+    @plant_basic_datum = PlantBasicDatum.new(user_id: params[:user_id])
   end
 
   def create
     @plant_basic_datum = PlantBasicDatum.new(plant_basic_datum_params)
     if @plant_basic_datum.save
-      flash[:success] = '植物基本情報の作成に成功しました。'
-      redirect_to user_plant_basic_data_path(current_user)
+      # flash[:success] = '植物基本情報の作成に成功しました。'
+      redirect_to user_plant_basic_data_path, notice: "植物基本情報の作成に成功しました。"
+      # flash[:success] = '植物基本情報の作成に成功しました。'
     else
       render :new
     end

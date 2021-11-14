@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     # 情報更新時にnameの取得を許可
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
