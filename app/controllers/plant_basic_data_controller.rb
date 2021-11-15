@@ -7,6 +7,7 @@ class PlantBasicDataController < ApplicationController
   end
 
   def show
+    @plant_basic_datum = PlantBasicDatum.find(params[:id])
   end
 
   def new

@@ -15,7 +15,15 @@
 
     <% @plant_basic_data.each do |plant_basic_data| %>
       <tr>
-        <td><%= plant_basic_data.plant_name %></td>
+        <td><%= link_to plant_basic_data.plant_name, user_plant_basic_datum_path(id: plant_basic_data.id) %></td>
+        <td class="center"><%= plant_basic_data.plant_breed_name %></td>
+        <td class="center"><%= plant_basic_data.plant_family_name %></td>
+        <td class="center"><%= plant_basic_data.plant_place_of_origin %></td>
+        <td class="center">
+          <%= link_to "編集", edit_user_plant_basic_datum_path(id: plant_basic_data.id), remote: true, class: "btn btn-success" %>
+          <%= link_to "削除", user_plant_basic_datum_path(id: plant_basic_data.id), method: :delete,
+              data: { confirm: "#{plant_basic_data.plant_name}を削除してよろしいですか？" }, class: "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </table>
