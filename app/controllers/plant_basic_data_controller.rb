@@ -26,6 +26,7 @@ class PlantBasicDataController < ApplicationController
   end
 
   def edit
+    @plant_basic_datum = PlantBasicDatum.find(params[:id])
   end
 
   def update
@@ -38,6 +39,7 @@ class PlantBasicDataController < ApplicationController
   end
 
   def destroy
+    @plant_basic_datum = PlantBasicDatum.find(params[:id])
     @plant_basic_datum.destroy
     flash[:success] = "#{@plant_basic_datum.plant_name}のデータを削除しました。"
     redirect_to user_plant_basic_data_path(current_user)

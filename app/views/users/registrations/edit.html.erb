@@ -1,8 +1,6 @@
 <% provide(:title, 'Edit') %>
 
-<div class="top2">
-
-  <div class="row">
+<div class="row">
   <h1><%= current_user.name %> の<%= t("activerecord.attributes.user.edit") %></h1>
   <!--<h1><%= resource_name.to_s.humanize %><%= t("activerecord.attributes.user.edit") %></h1>-->
 
@@ -54,6 +52,4 @@
 
       <%= link_to t("users.shared.links.back"), :back, class: "link" %>
     </div>
-  </div>
-
 </div>

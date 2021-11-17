@@ -4,7 +4,11 @@
 /* universal */
 
 body {
+  // background-image: image-url('5001036_m.jpg');
+  background-size: cover;
   padding-top: 50px;
+  // padding-left: 0px;
+  // padding-right: 0px;
 }
 
 section {
@@ -100,7 +104,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  // color: #777;
 }
 
 p {
@@ -200,4 +204,10 @@ p {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
+}
+
+/* モーダルウインドウの位置調整 */
+
+.modal-dialog-center {
+  padding-top: 10%;
 }

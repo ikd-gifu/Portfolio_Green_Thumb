@@ -19,21 +19,26 @@
   </head>
 
   <body>
-    <%# <img src="/green_thumb/app/assets/images/5001036_m.jpg" width="100%" height="100%"> %>
+    <% if user_signed_in? %>
+      <div class="top2">
+    <% else %>
+      <div class="top">
+    <% end %>
     <!-- headerの内容がこの1行で収まる -->
-    <%= render 'layouts/header' %>
-    <div class="container-body">
-      <!-- <% flash.each do |message_type, msg| %>
-        <div class="alert alert-<%= message_type %>"><%= msg.html_safe %><%= 2 %></div>
-      <% end %> -->
-      <% if notice.present? %>
-        <p class="p-alert alert alert-info"><%= notice %></p>
-      <% end %>
-      <% if alert.present? %>
-        <p class="p-alert alert alert-danger"><%= alert %></p>
-      <% end %>
-      <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
+      <%= render 'layouts/header' %>
+      <div class="container">
+        <!-- <% flash.each do |message_type, msg| %>
+          <div class="alert alert-<%= message_type %>"><%= msg.html_safe %><%= 2 %></div>
+        <% end %> -->
+        <% if notice.present? %>
+          <p class="p-alert alert alert-info"><%= notice %></p>
+        <% end %>
+        <% if alert.present? %>
+          <p class="p-alert alert alert-danger"><%= alert %></p>
+        <% end %>
+        <%= yield %>
+        <%= debug(params) if Rails.env.development? %>
+      </div>
     </div>
   </body>
 </html>
