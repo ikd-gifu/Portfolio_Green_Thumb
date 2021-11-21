@@ -30,19 +30,21 @@ class PlantBasicDataController < ApplicationController
   end
 
   def update
-    if @plant_basic_datum.update_attributes(plant_basic_datum_params)
-      flash[:success] = "#{@plant_basic_datum.plant_name}の基本情報を更新しました。"
-      redirect_to user_plant_basic_data_path(current_user)
+    @plant_basic_datum = PlantBasicDatum.find(params[:id])
+    if @plant_basic_datum.update(plant_basic_datum_params)
+      # flash[:success] = "#{@plant_basic_datum.plant_name}の基本情報を更新しました。"
+      redirect_to user_plant_basic_data_path(current_user), notice: "#{@plant_basic_datum.plant_name}の基本情報を更新しました。"
     else
-      render :edit
+      # render :edit
+      redirect_to user_plant_basic_data_path(current_user), notice: "#{@plant_basic_datum.plant_name}の基本情報の更新に失敗しました。"
     end
   end
 
   def destroy
     @plant_basic_datum = PlantBasicDatum.find(params[:id])
     @plant_basic_datum.destroy
-    flash[:success] = "#{@plant_basic_datum.plant_name}のデータを削除しました。"
-    redirect_to user_plant_basic_data_path(current_user)
+    #flash[:success] = "#{@plant_basic_datum.plant_name}のデータを削除しました。"
+    redirect_to user_plant_basic_data_path(current_user), notice: "#{@plant_basic_datum.plant_name}のデータを削除しました。"
   end
 
   private
