@@ -12,7 +12,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 // require("bootstrap/dist/js/bootstrap")
-//= require rails-ujs
+//= require jquery-ujs
 //= require turbolinks
 //= require jquery
 //= require bootstrap

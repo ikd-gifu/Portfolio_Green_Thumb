@@ -73,3 +73,19 @@
   margin: 15px 0;
   width: 30%;
 }
+
+/*モーダル全体の背景設定*/
+.modal-content {
+  background:green;
+}
+
+/*モーダルのbody要素の背景設定*/
+.modal-body {
+  background: green;
+}
+
+/*モーダルの背景の色※モーダル自体の背景ではない*/
+.modal-backdrop {
+    background-color: gray;
+    opacity: 0.9;
+}
