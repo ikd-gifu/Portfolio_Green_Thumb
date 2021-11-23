@@ -12,16 +12,16 @@
           <%= form_with(model: @plant_basic_datum, url: user_plant_basic_datum_path(@plant_basic_datum), local: true, method: :patch) do |f| %>
             
 
-            <%= f.label :plant_name, class: "label-basic-info" %>
+            <%= f.label :plant_name, "植物名", class: "label-basic-info" %>
             <%= f.text_field :plant_name, class: "form-control" %>
 
-            <%= f.label :plant_breed_name, class: "label-basic-info" %>
+            <%= f.label :plant_breed_name, "品種名", class: "label-basic-info" %>
             <%= f.text_field :plant_breed_name, class: "form-control" %>
 
-            <%= f.label :plant_family_name, class: "label-basic-info" %>
+            <%= f.label :plant_family_name, "科名", class: "label-basic-info" %>
             <%= f.text_field :plant_family_name, class: "form-control" %>
 
-            <%= f.label :plant_place_of_origin, class: "label-basic-info" %>
+            <%= f.label :plant_place_of_origin, "原産地", class: "label-basic-info" %>
             <%= f.text_field :plant_place_of_origin, class: "form-control" %>
 
             <div class="center">

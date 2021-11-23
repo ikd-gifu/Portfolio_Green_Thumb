@@ -2,7 +2,11 @@
 <h1>植物基本情報一覧</h1>
 
 <div class="col-md-10 col-md-offset-1">
-  <!--<%= will_paginate @plant_basic_data, previous_label: '&lt 前へ', next_label: '次へ &gt' %>-->
+  <%= will_paginate @plant_basic_data, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
+  
+  <div class="right">
+    <%= link_to "基本情報新規作成", new_user_plant_basic_datum_path(user_id: params[:user_id]), class: "btn btn-info" %>
+  </div>
   <table class="table table-condensed table-hover" id="table-users">
     <thead>
       <tr>
@@ -27,7 +31,7 @@
       </tr>
     <% end %>
   </table>
-  <!--<%= will_paginate @plant_basic_data, previous_label: '&lt 前へ', next_label: '次へ &gt' %>-->
+  <%= will_paginate @plant_basic_data, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
 </div>
 
 <div id="edit" class="modal" tabindex="-1" role="dialog" aria-hidden="true"></div>

@@ -23,6 +23,10 @@ textarea {
   text-align: center;
 }
 
+.right {
+  text-align: right;
+}
+
 .jumbotron {
   background-color:transparent !important; 
   color: #fff;
@@ -210,4 +214,16 @@ p {
 
 .modal-dialog-center {
   padding-top: 10%;
+}
+
+/* モーダルポップアップが内部のコンテンツでスクロールする必要があり、親が静止したままにする */
+
+.modal-body {
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
+}
+.modal-open {
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-right: 0 !important;
 }
