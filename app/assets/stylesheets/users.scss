@@ -73,3 +73,23 @@
   margin: 15px 0;
   width: 30%;
 }
+
+/*モーダル全体の背景設定*/
+.modal-content {
+  background:green;
+}
+
+/*モーダルのbody要素の背景設定*/
+.modal-body {
+  // background: green;
+  // background-image: image-url('Depositphotos_192428086_XL.jpg');
+  background-image: image-url('eha0090-002.jpg');
+  // background-image: image-url('eha0110-044.jpg');
+  background-size: cover;
+}
+
+/*モーダルの背景の色※モーダル自体の背景ではない*/
+.modal-backdrop {
+    background-color: gray;
+    opacity: 0.9;
+}
