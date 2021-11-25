@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = User.find(params[:id])
   end
+
+  def set_plant_management_slip
+    @plant_management_slip = PlantManagementSlip.find(params[:id])
+  end
 end
