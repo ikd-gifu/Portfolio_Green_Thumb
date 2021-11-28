@@ -3,11 +3,12 @@ class PlantManagementSlipsController < ApplicationController
 
   def index
     @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
-    @plant_management_slips = PlantManagementSlip.where(plant_basic_datum_id: @plant_basic_data.id).paginate(page: params[:page], per_page: 3)
+    @plant_management_slips = PlantManagementSlip.where(plant_basic_datum_id: @plant_basic_data.ids).paginate(page: params[:page], per_page: 3)
   end
 
   def new
-    @plant_management_slip = PlantManagementSlip.new(user_id: params[:user_id])
+    @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
+    @plant_management_slip = PlantManagementSlip.new
   end
 
   def show
@@ -15,6 +16,8 @@ class PlantManagementSlipsController < ApplicationController
 
   def create
     @plant_management_slip = PlantManagementSlip.new(plant_management_slip_params)
+    @plant_basic_datum = PlantBasicDatum.find(params[:plant_management_slip][:plant_basic_datum_id])
+    @plant_management_slip.update(plant_name: @plant_basic_datum.plant_name)
     if @plant_management_slip.save
       redirect_to user_plant_management_slips_path, notice: "植物管理票の新規作成に成功しました。"
     else
@@ -35,13 +38,13 @@ class PlantManagementSlipsController < ApplicationController
 
   def destroy
     @plant_management_slip.destroy
-    redirect_to user_plant_management_slip_path(), notice: "#{@plant_management_slip.plant_name}の管理票を削除しました。"
+    redirect_to user_plant_management_slips_path(current_user), notice: "#{@plant_management_slip.plant_name}の#{@plant_management_slip.plant_individual_name}の管理票を削除しました。"
   end
 
   private
 
     def plant_management_slip_params
-      params.require(:plant_management_slip).permit(:plant_basic_datum_id, :plant_name, :plant_price, :plant_size, :plant_quantity, :plant_purchase_date, :plant_purchase_location)
+      params.require(:plant_management_slip).permit(:plant_basic_datum_id, :plant_name, :plant_price, :plant_size, :plant_quantity, :plant_purchase_date, :plant_purchase_location, :cultivation_place, :plant_individual_name)
     end
 
 end

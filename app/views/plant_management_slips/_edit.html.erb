@@ -1,0 +1,49 @@
+<div class="modal-dialog modal-lg modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      <h1 class="modal-title"><%= @plant_management_slip.plant_name %>の<%= @plant_management_slip.plant_individual_name %>の管理票編集</h1>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <%= form_with(model: @plant_management_slip, url: user_plant_management_slip_path(@plant_management_slip), local: true, method: :patch) do |f| %>
+            
+            <%= f.label :plant_name, "植物名", class: "label-basic-info" %>
+            <%= f.text_field :plant_name, class: "form-control" %>
+
+            <%= f.label :plant_individual_name, "植物個体名", class: "label-basic-info" %>
+            <%= f.text_field :plant_individual_name, class: "form-control" %>
+
+            <%= f.label :plant_price, "価格", class: "label-basic-info" %>
+            <%= f.text_field :plant_price, class: "form-control" %>
+
+            <%= f.label :plant_size, "サイズ", class: "label-basic-info" %>
+            <%= f.text_field :plant_size, class: "form-control" %>
+
+            <%= f.label :plant_quantity, "数量", class: "label-basic-info" %>
+            <%= f.text_field :plant_quantity, class: "form-control" %>
+
+            <%= f.label :plant_purchase_date, "購入日", class: "label-basic-info" %>
+            <%= f.date_field :plant_purchase_date, class: "form-control" %>
+
+            <%= f.label :plant_purchase_location, "購入場所", class: "label-basic-info" %>
+            <%= f.text_field :plant_purchase_location, class: "form-control" %>
+
+            <%= f.label :cultivation_place, "栽培場所", class: "label-basic-info" %>
+            <%= f.text_field :cultivation_place, class: "form-control" %>
+
+            <div class="center">
+              <%= f.submit "更新", class: "btn btn-success btn-basic-info" %>
+              <button type="button" class="btn btn-default btn-basic-info" data-dismiss="modal">
+                キャンセル
+              </button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

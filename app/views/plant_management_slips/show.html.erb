@@ -1,4 +1,33 @@
-<% provide(:title, "#") %>
+<% provide(:title, "#{@plant_management_slip.plant_name}#{@plant_management_slip.plant_individual_name}") %>
 
-<h1>"#"の管理票</h1>
-<p>Find me in app/views/plant_management_slips/show.html.erb</p>
+<h1><%= @plant_management_slip.plant_name %>の<%= @plant_management_slip.plant_individual_name %>の管理票</h1>
+
+<div>
+  <table class="table table-bordered table-condensed table-hover" id="table-attendances">
+    <thead>
+      <tr>
+        <th>植物名</th>
+        <th>植物個体名</th>
+        <th>価格</th>
+        <th>サイズ</th>
+        <th>数量</th>
+        <th>購入日</th>
+        <th>購入場所</th>
+        <th>栽培場所</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @plant_management_slip.plant_name %></td>
+        <td><%= @plant_management_slip.plant_individual_name %></td>
+        <td><%= @plant_management_slip.plant_price %></td>
+        <td><%= @plant_management_slip.plant_size %></td>
+        <td><%= @plant_management_slip.plant_quantity %></td>
+        <td><%= @plant_management_slip.plant_purchase_date %></td>
+        <td><%= @plant_management_slip.plant_purchase_location %></td>
+        <td><%= @plant_management_slip.cultivation_place %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

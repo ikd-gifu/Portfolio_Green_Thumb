@@ -1,4 +1,35 @@
 <% provide(:title, "New PMS") %>
 
 <h1>植物管理票　新規作成</h1>
-<p>Find me in app/views/plant_management_slips/new.html.erb</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @plant_management_slip, url: user_plant_management_slips_path(current_user), local: true, method: :post) do |f| %>
+
+      <%= f.label :plant_name, "植物名", class: "label-login" %>
+      <%= f.collection_select(:plant_basic_datum_id, @plant_basic_data, :id, :plant_name, {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
+
+      <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
+      <%= f.text_field :plant_individual_name, class: 'form-control' %>
+
+      <%= f.label :plant_price, "価格", class: "label-login" %>
+      <%= f.text_field :plant_price, class: 'form-control' %>
+
+      <%= f.label :plant_size, "サイズ", class: "label-login" %>
+      <%= f.text_field :plant_size, class: 'form-control' %>
+
+      <%= f.label :plant_quantity, "数量", class: "label-login" %>
+      <%= f.text_field :plant_quantity, class: 'form-control' %>
+
+      <%= f.label :plant_quantity, "購入日", class: "label-login" %>
+      <%= f.date_field :plant_quantity, class: 'form-control' %>
+
+      <%= f.label :plant_quantity, "購入場所", class: "label-login" %>
+      <%= f.text_field :plant_quantity, class: 'form-control' %>
+
+      <%= f.label :cultivation_place, "栽培場所", class: "label-login" %>
+      <%= f.text_field :cultivation_place, class: 'form-control' %>
+
+      <%= f.submit "新規作成", class: "btn btn-primary btn-block btn-login" %>
+    <% end %>
+  </div>
+</div>
