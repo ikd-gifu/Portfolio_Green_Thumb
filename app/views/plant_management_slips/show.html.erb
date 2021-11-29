@@ -24,7 +24,7 @@
         <td><%= @plant_management_slip.plant_price %></td>
         <td><%= @plant_management_slip.plant_size %></td>
         <td><%= @plant_management_slip.plant_quantity %></td>
-        <td><%= @plant_management_slip.plant_purchase_date %></td>
+        <td><%= l(@plant_management_slip.plant_purchase_date, formats: :short) if @plant_management_slip.plant_purchase_date.present? %></td>
         <td><%= @plant_management_slip.plant_purchase_location %></td>
         <td><%= @plant_management_slip.cultivation_place %></td>
       </tr>
