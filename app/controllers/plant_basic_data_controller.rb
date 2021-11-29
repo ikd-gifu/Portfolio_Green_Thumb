@@ -36,7 +36,7 @@ class PlantBasicDataController < ApplicationController
       redirect_to user_plant_basic_data_path(current_user), notice: "#{@plant_basic_datum.plant_name}の基本情報を更新しました。"
     else
       # render :edit
-      redirect_to user_plant_basic_data_path(current_user), notice: "#{@plant_basic_datum.plant_name}の基本情報の更新に失敗しました。"
+      redirect_to user_plant_basic_data_path(current_user), alert: "基本情報の更新に失敗しました。"
     end
   end
 

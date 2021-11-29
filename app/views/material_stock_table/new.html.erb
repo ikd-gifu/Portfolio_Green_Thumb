@@ -1,0 +1,31 @@
+<% provide(:title, "New MST") %>
+
+<h1>資材在庫表　新規作成</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @material_stock_table, url: user_material_stock_table_index_path(current_user), local: true, method: :post) do |f| %>
+
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <%= f.label :material_name, "資材名", class: "label-login" %>
+      <%= f.text_field :material_name, class: 'form-control' %>
+
+      <%= f.label :material_price, "価格", class: "label-login" %>
+      <%= f.text_field :material_price, class: 'form-control' %>
+
+      <%= f.label :material_size, "規格・サイズ", class: "label-login" %>
+      <%= f.text_field :material_size, class: 'form-control' %>
+
+      <%= f.label :material_quantity, "数量", class: "label-login" %>
+      <%= f.text_field :material_quantity, class: 'form-control' %>
+
+      <%= f.label :material_purchase_date, "購入日", class: "label-login" %>
+      <%= f.date_field :material_purchase_date, class: 'form-control' %>
+
+      <%= f.label :material_purchase_location, "購入場所", class: "label-login" %>
+      <%= f.text_field :material_purchase_location, class: 'form-control' %>
+
+      <%= f.submit "新規作成", class: "btn btn-primary btn-block btn-login" %>
+    <% end %>
+  </div>
+</div>

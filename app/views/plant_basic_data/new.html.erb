@@ -6,8 +6,7 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_with(model: @plant_basic_datum, url: user_plant_basic_data_path(current_user), local: true, method: :post) do |f| %>
 
-      <%= f.label :user_id, "ユーザーID", class: "label-login" %>
-      <%= f.text_field :user_id, class: 'form-control' %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
 
       <%= f.label :plant_name, "植物名", class: "label-login" %>
       <%= f.text_field :plant_name, class: 'form-control' %>
