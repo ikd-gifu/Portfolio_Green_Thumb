@@ -1,2 +1,29 @@
-<h1>MaterialStockTable#show</h1>
-<p>Find me in app/views/material_stock_table/show.html.erb</p>
+<% provide(:title, @material_stock_table.material_name) %>
+
+<h1><%= @material_stock_table.material_name %>の在庫表</h1>
+
+<div>
+  <table class="table table-bordered table-condensed table-hover" id="table-attendances">
+    <thead>
+      <tr>
+        <th>資材名</th>
+        <th>価格</th>
+        <th>規格・サイズ</th>
+        <th>数量</th>
+        <th>購入日</th>
+        <th>購入場所</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @material_stock_table.material_name %></td>
+        <td><%= @material_stock_table.material_price %></td>
+        <td><%= @material_stock_table.material_size %></td>
+        <td><%= @material_stock_table.material_quantity %></td>
+        <td><%= @material_stock_table.material_purchase_date %></td>
+        <td><%= @material_stock_table.material_purchase_location %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
