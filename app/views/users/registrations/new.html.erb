@@ -7,13 +7,18 @@
           <%= render "users/shared/error_messages", resource: resource %>
 
           <div class="field">
-            <%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true %>
+            <%= f.label :name, class: "label-signup" %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "email", class: "form-control" %>
           </div>
 
           <div class="field">
             <%= f.label :email, class: "label-signup" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :location_id, class: "label-signup" %><br />
+            <%= f.collection_select(:location_id, @cities, :location_id, :name, {:include_blank => "地名を選択してください"}, {class: 'form-control'}) %>
           </div>
 
           <div class="field">

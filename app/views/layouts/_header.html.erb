@@ -11,7 +11,7 @@
         <li><%= link_to "植物基本情報", user_plant_basic_data_path(current_user), id: "logo-center" %></li>
         <li><%= link_to "植物管理票", user_plant_management_slips_path(current_user), id: "logo-center" %></li>
         <li><%= link_to "資材在庫表", user_material_stock_table_index_path(current_user), id: "logo-center" %></li>
-        <li><%= link_to "園芸日誌", "#", id: "logo-center" %></li>
+        <li><%= link_to "園芸日誌", user_gardening_diaries_path(current_user), id: "logo-center" %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <%= current_user.name %><b class="caret"></b>
