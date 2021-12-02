@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_134146) do
+ActiveRecord::Schema.define(version: 2021_12_02_132448) do
 
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_134146) do
     t.datetime "implementation_date"
     t.text "work_content"
     t.string "plant_name"
-    t.integer "plant_basic_data_id"
+    t.integer "plant_basic_datum_id"
     t.string "material_name"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

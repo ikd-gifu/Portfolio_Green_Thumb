@@ -12,11 +12,14 @@ class GardeningDiariesController < ApplicationController
   end
 
   def new
+    @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
+    @plant_management_slip = PlantManagementSlip.where(ids: @plant_basic_data.ids)
+    @material_stock_table = MaterialStockTable.where(user_id: params[:user_id])
     @gardening_diary = GardeningDiary.new(user_id: params[:user_id])
   end
 
   def create
-    @gardening_diary = GardeningDiary.new(material_stock_table_params)
+    @gardening_diary = GardeningDiary.new(gardening_diary_params)
     if @gardening_diary.save
       redirect_to user_gardening_diaries_path, notice: "園芸日誌の作成に成功しました。"
     else
