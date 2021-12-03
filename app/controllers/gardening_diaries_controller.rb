@@ -13,7 +13,7 @@ class GardeningDiariesController < ApplicationController
 
   def new
     @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
-    @plant_management_slip = PlantManagementSlip.where(ids: @plant_basic_data.ids)
+    @plant_management_slips = PlantManagementSlip.where(id: @plant_basic_data.ids)
     @material_stock_table = MaterialStockTable.where(user_id: params[:user_id])
     @gardening_diary = GardeningDiary.new(user_id: params[:user_id])
   end
