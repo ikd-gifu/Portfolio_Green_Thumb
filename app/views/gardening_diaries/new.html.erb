@@ -20,7 +20,11 @@
       <%= f.collection_select(:plant_name, @plant_basic_data, :plant_name, :plant_name, {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
 
       <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
-      <%= f.collection_select(:plant_individual_name, @plant_management_slips, :plant_individual_name, :plant_individual_name, {:include_blank => "植物個体名を選択してください"}, {class: 'form-control'}) %>
+      <%= f.select :plant_individual_name, [], {include_blank: "植物個体名を選択してください"}, {class: 'form-control'} %>
+
+      <%# @plant_management_slips.all.each do |plant_management_slip| %>
+      <%# %template{id: "sub-category-of-category#{plant_management_slip.id}"} %>
+      <%#= f.collection_select :plant_management_slip, categroy.sub_categories, :id, :name, include_blank: "サブカテゴリーを選択してください" %>
 
       <%= f.label :material_name, "資材名", class: "label-login" %>
       <%= f.collection_select(:material_name, @material_stock_table, :material_name, :material_name, {:include_blank => "資材名を選択してください"}, {class: 'form-control'}) %>
