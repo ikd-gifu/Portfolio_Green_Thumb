@@ -17,14 +17,37 @@
       <%= f.text_field :work_content, class: 'form-control' %>
 
       <%= f.label :plant_name, "植物名", class: "label-login" %>
-      <%= f.collection_select(:plant_name, @plant_basic_data, :plant_name, :plant_name, {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
+      <%= f.collection_select(:plant_name, @plant_basic_data, :id, :plant_name, {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
 
-      <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
-      <%= f.select :plant_individual_name, [], {include_blank: "植物個体名を選択してください"}, {class: 'form-control'} %>
+      <%#= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
+      
+      <!-- 中カテゴリが差し込ませるポイントを指定するために追加　※１ -->
+      <div id="plant_management_slip_insert_point"></div> 
 
-      <%# @plant_management_slips.all.each do |plant_management_slip| %>
-      <%# %template{id: "sub-category-of-category#{plant_management_slip.id}"} %>
-      <%#= f.collection_select :plant_management_slip, categroy.sub_categories, :id, :name, include_blank: "サブカテゴリーを選択してください" %>
+      <!-- -----------EDIT時、中カテゴリーのダミー表示の切替 ※２---------------------- -->
+      <div id="plant_management_slip">
+        
+          <% if @plant_management_slips.blank? %>
+            <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
+            <%= f.select(:plant_individual_name, [], {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
+          <% else %>
+            <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
+            <%= f.collection_select(:plant_individual_name, @plant_management_slips, :plant_individual_name, :plant_individual_name, {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
+          <% end %>
+        
+      </div>
+
+      <!-- -----------中カテゴリのtamplateを作成 ※3---------------------- -->
+      <% @plant_basic_data.each do |plant_basic_datum|  %>
+        <template id="plant_management_slip_<%= plant_basic_datum.id %>"><!-- このidをもとに呼び出される-->
+        <div id="selected_plant_management_slip">
+          
+          <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
+          <%= f.collection_select(:plant_individual_name, plant_basic_datum.plant_management_slips, :plant_individual_name, :plant_individual_name, {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
+        
+        </div>
+        </template>
+      <% end %>
 
       <%= f.label :material_name, "資材名", class: "label-login" %>
       <%= f.collection_select(:material_name, @material_stock_table, :material_name, :material_name, {:include_blank => "資材名を選択してください"}, {class: 'form-control'}) %>
@@ -36,3 +59,5 @@
     <% end %>
   </div>
 </div>
+<!-- javascriptの読み込み -->
+<%= javascript_pack_tag 'category_select_box', 'data-turbolinks-track': 'reload'  %>
