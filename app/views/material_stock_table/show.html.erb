@@ -21,7 +21,7 @@
         <td><%= @material_stock_table.material_price %></td>
         <td><%= @material_stock_table.material_size %></td>
         <td><%= @material_stock_table.material_quantity %></td>
-        <td><%= @material_stock_table.material_purchase_date %></td>
+        <td><%= l(@material_stock_table.material_purchase_date, formats: :short) if @material_stock_table.material_purchase_date.present? %></td>
         <td><%= @material_stock_table.material_purchase_location %></td>
       </tr>
     </tbody>

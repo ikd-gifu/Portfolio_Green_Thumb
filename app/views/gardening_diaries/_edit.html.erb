@@ -4,29 +4,32 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
-      <h1 class="modal-title"><%= @material_stock_table.material_name %>の在庫表編集</h1>
+      <h1 class="modal-title"><%= @gardening_diary.work_name %>の日誌編集</h1>
     </div>
     <div class="modal-body">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <%= form_with(model: @material_stock_table, url: user_material_stock_table_path(@material_stock_table), local: true, method: :patch) do |f| %>
+          <%= form_with(model: @gardening_diary, url: user_gardening_diary_path(@gardening_diary), local: true, method: :patch) do |f| %>
             
-            <%= f.label :material_name, "資材名", class: "label-basic-info" %>
+            <%= f.label :material_name, "作業名", class: "label-basic-info" %>
             <%= f.text_field :material_name, class: "form-control" %>
 
-            <%= f.label :material_price, "価格", class: "label-basic-info" %>
+            <%= f.label :material_price, "実施日", class: "label-basic-info" %>
             <%= f.text_field :material_price, class: "form-control" %>
 
-            <%= f.label :material_size, "規格・サイズ", class: "label-basic-info" %>
+            <%= f.label :material_size, "作業内容", class: "label-basic-info" %>
             <%= f.text_field :material_size, class: "form-control" %>
 
-            <%= f.label :material_quantity, "数量", class: "label-basic-info" %>
+            <%= f.label :material_quantity, "植物名", class: "label-basic-info" %>
             <%= f.text_field :material_quantity, class: "form-control" %>
 
-            <%= f.label :material_purchase_date, "購入日", class: "label-basic-info" %>
+            <%= f.label :material_purchase_date, "植物個体名", class: "label-basic-info" %>
             <%= f.date_field :material_purchase_date, class: "form-control" %>
 
-            <%= f.label :material_purchase_location, "購入場所", class: "label-basic-info" %>
+            <%= f.label :material_purchase_location, "資材名", class: "label-basic-info" %>
+            <%= f.text_field :material_purchase_location, class: "form-control" %>
+
+            <%= f.label :material_purchase_location, "資材消費量", class: "label-basic-info" %>
             <%= f.text_field :material_purchase_location, class: "form-control" %>
 
             <div class="center">

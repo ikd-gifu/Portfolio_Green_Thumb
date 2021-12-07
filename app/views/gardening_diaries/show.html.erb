@@ -1,2 +1,31 @@
-<h1>GardeningDiaries#show</h1>
-<p>Find me in app/views/gardening_diaries/show.html.erb</p>
+<% provide(:title, @gardening_diary.work_name) %>
+
+<h1><%= @gardening_diary.work_name %>の作業内容</h1>
+
+<div>
+  <table class="table table-bordered table-condensed table-hover" id="table-attendances">
+    <thead>
+      <tr>
+        <th>作業名</th>
+        <th>実施日</th>
+        <th>作業内容</th>
+        <th>植物名</th>
+        <th>植物個体名</th>
+        <th>資材名</th>
+        <th>資材消費量</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @gardening_diary.work_name %></td>
+        <td><%= l(@gardening_diary.implementation_date, formats: :short) if @gardening_diary.implementation_date.present? %></td>
+        <td><%= @gardening_diary.work_content %></td>
+        <td><%= @gardening_diary.plant_name %></td>
+        <td><%= @gardening_diary.plant_individual_name %></td>
+        <td><%= @gardening_diary.material_name %></td>
+        <td><%= @gardening_diary.material_consumption %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
