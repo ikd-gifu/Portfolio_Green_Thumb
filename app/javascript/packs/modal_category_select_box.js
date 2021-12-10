@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function() {
 
   //復活させるダミーの中カテゴリのセレクトボックス
-    let defaultPlantManagementSlipSelect = `<div id="plant_management_slip"><label class="label-login" for="gardening_diary_plant_name">植物個体名</label><select name="plant_management_slip", class="form-control">
+    let defaultPlantManagementSlipSelect = `<div id="plant_management_slip"><label class="label-login" for="gardening_diary_plant_name">植物管理票</label><select name="plant_management_slip", class="form-control">
     <option value>植物個体名を選択してくださいDD</option>
     </select></div>`;
   

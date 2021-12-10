@@ -11,26 +11,51 @@
         <div class="col-md-6 col-md-offset-3">
           <%= form_with(model: @gardening_diary, url: user_gardening_diary_path(@gardening_diary), local: true, method: :patch) do |f| %>
             
-            <%= f.label :material_name, "作業名", class: "label-basic-info" %>
-            <%= f.text_field :material_name, class: "form-control" %>
+            <%= f.label :work_name, "作業名", class: "label-basic-info" %>
+            <%= f.text_field :work_name, class: "form-control" %>
 
-            <%= f.label :material_price, "実施日", class: "label-basic-info" %>
-            <%= f.text_field :material_price, class: "form-control" %>
+            <%= f.label :implementation_date, "実施日", class: "label-basic-info" %>
+            <%= f.date_field :implementation_date, class: "form-control" %>
 
-            <%= f.label :material_size, "作業内容", class: "label-basic-info" %>
-            <%= f.text_field :material_size, class: "form-control" %>
+            <%= f.label :work_content, "作業内容", class: "label-basic-info" %>
+            <%= f.text_field :work_content, class: "form-control" %>
 
-            <%= f.label :material_quantity, "植物名", class: "label-basic-info" %>
-            <%= f.text_field :material_quantity, class: "form-control" %>
+            <%= f.label :plant_name, "植物名", class: "label-basic-info" %>
+            <%= f.collection_select(:plant_name, @plant_basic_data, :id, :plant_name, {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
 
-            <%= f.label :material_purchase_date, "植物個体名", class: "label-basic-info" %>
-            <%= f.date_field :material_purchase_date, class: "form-control" %>
+            <!-- 中カテゴリが差し込ませるポイントを指定するために追加　※１ -->
+            <div id="plant_management_slip_insert_point"></div> 
 
-            <%= f.label :material_purchase_location, "資材名", class: "label-basic-info" %>
-            <%= f.text_field :material_purchase_location, class: "form-control" %>
+            <!-- -----------EDIT時、中カテゴリーのダミー表示の切替 ※２---------------------- -->
+            <div id="plant_management_slip">
+              
+                <% if @plant_management_slips.blank? %><!-- １ -->
+                  <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
+                  <%= f.select(:plant_individual_name, [], {:include_blank => "植物個体名を選択してください1"}, {class: 'form-control'}) %>
+                <% else %>
+                  <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %><!-- ２ -->
+                  <%= f.collection_select(:plant_individual_name, @plant_management_slips, :plant_individual_name, :plant_individual_name, {:include_blank => "植物名を選択してください2"}, {class: 'form-control'}) %>
+                <% end %>
+              
+            </div>
 
-            <%= f.label :material_purchase_location, "資材消費量", class: "label-basic-info" %>
-            <%= f.text_field :material_purchase_location, class: "form-control" %>
+            <!-- -----------中カテゴリのtamplateを作成 ※3---------------------- -->
+            <% @plant_basic_data.each do |plant_basic_datum|  %><!-- ３ -->
+              <template id="plant_management_slip_<%= plant_basic_datum.id %>"><!-- このidをもとに呼び出される-->
+              <div id="selected_plant_management_slip">
+                
+                <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
+                <%= f.collection_select(:plant_individual_name, plant_basic_datum.plant_management_slips, :plant_individual_name, :plant_individual_name, {:include_blank => "植物個体名を選択してください3"}, {class: 'form-control'}) %>
+              
+              </div>
+              </template>
+            <% end %>
+
+            <%= f.label :material_name, "資材名", class: "label-basic-info" %>
+            <%= f.collection_select(:material_name, @material_stock_table, :material_name, :material_name, {:include_blank => "資材名を選択してください"}, {class: 'form-control'}) %>
+
+            <%= f.label :material_consumption, "資材消費量", class: "label-basic-info" %>
+            <%= f.text_field :material_consumption, class: "form-control" %>
 
             <div class="center">
               <%= f.submit "更新", class: "btn btn-success btn-basic-info" %>
@@ -45,3 +70,6 @@
     </div>
   </div>
 </div>
+
+<!-- javascriptの読み込み -->
+<%= javascript_pack_tag 'category_select_box', 'data-turbolinks-track': 'reload'  %>
