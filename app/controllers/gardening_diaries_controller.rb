@@ -37,6 +37,7 @@ class GardeningDiariesController < ApplicationController
     
     @material_stock_table = MaterialStockTable.where(user_id: params[:user_id])
     @gardening_diary = GardeningDiary.find(params[:id])
+    @plant_management_slips = PlantManagementSlip.where(plant_name: @gardening_diary.plant_name)
   end
 
   def update
