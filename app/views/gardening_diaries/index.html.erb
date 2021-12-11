@@ -18,7 +18,7 @@
     <%= link_to "園芸日誌新規作成", new_user_gardening_diary_path(user_id: params[:user_id]), data: {"turbolinks" => false}, class: "btn btn-info" %>
   </div>
 
-  </div>
+  <div>
     <table class="table table-condensed table-hover" id="table-users">
       <thead>
         <tr>
@@ -41,7 +41,7 @@
           <td class="center"><%= gardening_diary.plant_individual_name %></td>
           <td class="center"><%= gardening_diary.material_name %></td>
           <td class="center">
-            <%= link_to "編集", edit_user_gardening_diary_path(id: gardening_diary.id), remote: true, class: "btn btn-success" %>
+            <%= link_to "編集", edit_user_gardening_diary_path(id: gardening_diary.id), remote: true, data: {"turbolinks" => false}, class: "btn btn-success" %>
             <%= link_to "削除", user_gardening_diary_path(id: gardening_diary.id), method: :delete,
                 data: { confirm: "#{gardening_diary.work_name}を削除してよろしいですか？" }, class: "btn btn-danger" %>
           </td>
@@ -52,5 +52,5 @@
 
 </div>
 <!-- javascriptの読み込み -->
-<%= javascript_pack_tag 'category_select_box', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'category_select_box' %>
 <div id="edit" class="modal in" tabindex="-1" role="dialog" aria-hidden="true"></div>
