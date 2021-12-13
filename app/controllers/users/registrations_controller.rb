@@ -10,6 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def after_update_path_for(resource)
+    user_path(resource) #ここにリダイレクト先のパスを指定
+  end
+  
   # POST /resource
   # def create
   #   super

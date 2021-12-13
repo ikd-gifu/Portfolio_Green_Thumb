@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
     user_path(resource)
   end
 
+  # def after_update_path_for(resource)
+  #   user_path(resource) #ここにリダイレクト先のパスを指定
+  # end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

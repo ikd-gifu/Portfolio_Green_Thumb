@@ -1,4 +1,5 @@
 class PlantManagementSlipsController < ApplicationController
+  before_action :authenticate_user! , only: [:index, :show, :new, :create, :edit, :update, :destroy]
   before_action :set_plant_management_slip, only: [:show, :edit, :update, :destroy]
 
   def index

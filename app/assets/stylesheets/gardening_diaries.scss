@@ -1,3 +1,15 @@
 // Place all the styles related to the GardeningDiaries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/*天気表示テーブル*/
+
+.table-radius {
+  // border: none;
+  border-radius: 10px;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+/*天気表示テーブル　罫線と背景色*/
+

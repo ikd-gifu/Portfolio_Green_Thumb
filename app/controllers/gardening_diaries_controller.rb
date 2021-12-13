@@ -1,4 +1,5 @@
 class GardeningDiariesController < ApplicationController
+  before_action :authenticate_user! , only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
     @user = User.find(params[:user_id])
