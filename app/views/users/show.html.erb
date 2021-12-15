@@ -1,32 +1,57 @@
 <% provide(:title, @user.name) %>
 <h1><%= @user.name %>のマイページ</h1>
 
-<div>
-    <table class="table-radius">
-      <thead>
+<div class="col-md-10 col-md-offset-1">
+  <div class="flexcontainer">
+
+    <table class="table-user-radius">
+      <tbody>
         <tr>
-          <% if @current_weather.weather_main == "FALSE" %>
-            <th class="center"><%= @user.name %>の天気情報はありません</th>
-          <% else %>
-            <th class="center"><h1><%= @city.name %>の天気<h1></th>
-          <% end %>
+            <th><h1><%= @user.name %>さんの登録情報<h1></th>
         </tr>
-      </thead>
 
         <tr>
-          <td class="center"><%= l(@current_weather.updated_at, formats: :middle) if @current_weather.updated_at.present? %></td>
+          <td><h2>メールアドレス　<%= @user.email %></h2></td>
         </tr>
         <tr>
-          <td class="center"><%= image_tag "http://openweathermap.org/img/wn/#{@current_weather.weather_icon.chop}d@2x.png" %></td>
+          <td><h2>居住地域　<%= @city.name %></h2></td>
         </tr>
         <tr>
-          <td class="center"><h2><%= @current_weather.weather_description %></h2></td>
+          <td><h2>登録日　<%= l(@user.created_at, formats: :middle) %></h2></td>
         </tr>
         <tr>
-          <td class="center"><h2><%= @current_weather.temp %>℃</h2></td>
+          <td><h2>最終更新日　<%= l(@user.updated_at, formats: :middle) %></h2></td>
         </tr>
-        <tr>
-          <td class="center"><h2>湿度　<%= @current_weather.humidity %>％</h2></td>
-        </tr>
+      </tbody>
     </table>
+
+    <table class="table-radius">
+      <tbody>
+        <tr>
+          <% if @current_weather.weather_main == "FALSE" %>
+            <th><%= @user.name %>の天気情報はありません</th>
+          <% else %>
+            <th><h1><%= @city.name %>の天気<h1></th>
+          <% end %>
+        </tr>
+
+        <tr>
+          <td><%= l(@current_weather.updated_at, format: :short) if @current_weather.updated_at.present? %></td>
+        </tr>
+        <tr>
+          <td><%= image_tag "http://openweathermap.org/img/wn/#{@current_weather.weather_icon.chop}d@2x.png" %></td>
+        </tr>
+        <tr>
+          <td><h2><%= @current_weather.weather_description %></h2></td>
+        </tr>
+        <tr>
+          <td><h2><%= @current_weather.temp %>℃</h2></td>
+        </tr>
+        <tr>
+          <td><h2>湿度　<%= @current_weather.humidity %>％</h2></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
 </div>

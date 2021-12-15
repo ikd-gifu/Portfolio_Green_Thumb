@@ -1,3 +1,66 @@
 // Place all the styles related to the MaterialStockTable controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+/*天気表示テーブル*/
+
+.table-users{
+	border-spacing: 0;
+	border-collapse: separate;
+  flex-basis: 100%;
+}
+.table-users th,.table-users td{
+	border-top: 3px solid #02A21C;
+	border-left: 3px solid #02A21C;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.table-users th > h1 {
+  font-size: 1.8em;
+  letter-spacing: -1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.table-users td > h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.table-users th{
+  height: 5px;
+	padding: 1px 10px;
+	background: #02A21C;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.table-users tr:nth-child(even) th{
+	background: #62BBAB;
+}
+.table-users td{
+  height: 1px;
+	padding: 2px 5px;
+	background: #FCFCFC;
+	color: #45823E;
+}
+.table-users th:last-child,.table-users td:last-child{
+	border-right: 3px solid #02A21C;
+}
+.table-users tr:last-child th,.table-users tr:last-child td{
+	border-bottom: 3px solid #02A21C;
+}
+.table-users tr:first-child :first-child{
+	border-top-left-radius: 10px;
+}
+.table-users tr:first-child :last-child{
+	border-top-right-radius: 10px;
+}
+.table-users tr:last-child :first-child{
+	border-bottom-left-radius: 10px;
+}
+.table-users tr:last-child :last-child{
+	border-bottom-right-radius: 10px;
+}
+.table-users tr:not(:first-child) th,.table-users tr:not(:first-child) td{
+	border-top:none;
+}

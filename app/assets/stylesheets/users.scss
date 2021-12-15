@@ -25,6 +25,70 @@
   }
 }
 
+/* ユーザー情報表示テーブル */
+
+.table-user-radius{
+	border-spacing: 0;
+	border-collapse: separate;
+  flex-basis: 40%;
+}
+.table-user-radius th,.table-user-radius td{
+	border-top: 3px solid #0262a2;
+	border-left: 3px solid #0262a2;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.table-user-radius th > h1 {
+  font-size: 1.8em;
+  letter-spacing: -1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.table-user-radius td > h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.table-user-radius th{
+  height: 5px;
+	padding: 1px 10px;
+	background: #0262a2;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.table-user-radius tr:nth-child(even) th{
+	background: #62BBAB;
+}
+.table-user-radius td{
+  height: 1px;
+	padding: 2px 5px;
+	background: #FCFCFC;
+	color: #45823E;
+}
+.table-user-radius th:last-child,.table-user-radius td:last-child{
+	border-right: 3px solid #0262a2;
+}
+.table-user-radius tr:last-child th,.table-user-radius tr:last-child td{
+	border-bottom: 3px solid #0262a2;
+}
+.table-user-radius tr:first-child :first-child{
+	border-top-left-radius: 50px;
+}
+.table-user-radius tr:first-child :last-child{
+	border-top-right-radius: 50px;
+}
+.table-user-radius tr:last-child :first-child{
+	border-bottom-left-radius: 50px;
+}
+.table-user-radius tr:last-child :last-child{
+	border-bottom-right-radius: 50px;
+}
+.table-user-radius tr:not(:first-child) th,.table-user-radius tr:not(:first-child) td{
+	border-top:none;
+}
+
 /* 入力フォーム */
 
 .label-signup {

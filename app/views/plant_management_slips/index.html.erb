@@ -7,30 +7,23 @@
   <div class="right">
     <%= link_to "植物管理票新規作成", new_user_plant_management_slip_path(user_id: params[:user_id]), class: "btn btn-info" %>
   </div>
-  <table class="table table-condensed table-hover" id="table-users">
+  <table class="table-users">
     <thead>
       <tr>
         <th class="center"><%= "植物名" %></th>
         <th class="center"><%= "植物個体名" %></th>
-        <th class="center"><%= "価格" %></th>
         <th class="center"><%= "サイズ" %></th>
         <th class="center"><%= "数量" %></th>
-        <th class="center"><%= "購入日" %></th>
-        <th class="center"><%= "購入場所" %></th>
-        <th class="center"><%= "栽培場所" %></th>
+        <th class="center"><%=  %></th>
       </tr>
     </thead>
 
     <% @plant_management_slips.each do |plant_management_slip| %>
       <tr>
         <td class="center"><%= plant_management_slip.plant_name %></td>
-        <td><%= link_to plant_management_slip.plant_individual_name, user_plant_management_slip_path(id: plant_management_slip.id) %></td>
-        <td class="center"><%= plant_management_slip.plant_price %></td>
+        <td class="center"><%= link_to plant_management_slip.plant_individual_name, user_plant_management_slip_path(id: plant_management_slip.id) %></td>
         <td class="center"><%= plant_management_slip.plant_size %></td>
         <td class="center"><%= plant_management_slip.plant_quantity %></td>
-        <td class="center"><%= l(plant_management_slip.plant_purchase_date, formats: :middle) if plant_management_slip.plant_purchase_date.present? %></td>
-        <td class="center"><%= plant_management_slip.plant_purchase_location %></td>
-        <td class="center"><%= plant_management_slip.cultivation_place %></td>
         <td class="center">
           <%= link_to "編集", edit_user_plant_management_slip_path(id: plant_management_slip.id), remote: true, class: "btn btn-success" %>
           <%= link_to "削除", user_plant_management_slip_path(id: plant_management_slip.id), method: :delete,

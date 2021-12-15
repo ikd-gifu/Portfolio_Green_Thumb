@@ -3,19 +3,42 @@
 
 <div class="col-md-10 col-md-offset-1">
 
-  <% if @current_weather.weather_main == "FALSE" %>
-    <h1><%= @user.name %>の天気情報はありません</h1>
-  <% else %>
-    <h2><%= @city.name %>の天気<h2>
-    <%= image_tag "http://openweathermap.org/img/wn/#{@current_weather.weather_icon.chop}d@2x.png" %>
-    <h2>天候　<%= @current_weather.weather_description %></h2>
-    <h2>気温　<%= @current_weather.temp %>℃</h2>
-    <h2>湿度　<%= @current_weather.humidity %>％</h2>
-    <h2>気圧　<%= @current_weather.pressure %>hPa</h2>
-  <% end %>
+  <div class="flexcontainer">
+    <table class="table-radius">
+        <tbody>
+          <tr>
+            <% if @current_weather.weather_main == "FALSE" %>
+              <th><h1><%= @user.name %>の天気情報はありません</h1></th>
+            <% else %>
+              <th><h1><%= @city.name %>の天気<h1></th>
+            <% end %>
+          </tr>
+          <tr>
+            <td><h2><%= l(@current_weather.updated_at, format: :short) if @current_weather.updated_at.present? %></h2></td>
+          </tr>
+          <tr>
+            <td><%= image_tag "http://openweathermap.org/img/wn/#{@current_weather.weather_icon.chop}d@2x.png" %></td>
+          </tr>
+          <tr>
+            <td><h2><%= @current_weather.weather_description %></h2></td>
+          </tr>
+          <tr>
+            <td><h2><%= @current_weather.temp %>℃</h2></td>
+          </tr>
+          <tr>
+            <td><h2>湿度　<%= @current_weather.humidity %>％</h2></td>
+          </tr>
+          <tr>
+            <td><h2><%= @current_weather.pressure %>hPa</h2></td>
+          </tr>
+        </tbody>
+      </table>
 
-  <div class="right">
-    <%= link_to "園芸日誌新規作成", new_user_gardening_diary_path(user_id: params[:user_id]), data: {"turbolinks" => false}, class: "btn btn-info" %>
+      <table>
+        <tr>
+          <td><%= link_to "園芸日誌新規作成", new_user_gardening_diary_path(user_id: params[:user_id]), data: {"turbolinks" => false}, class: "btn btn-info" %></td>
+        </tr>
+      </table>
   </div>
 
   <div>
@@ -24,21 +47,16 @@
         <tr>
           <th class="center"><%= "作業名" %></th>
           <th class="center"><%= "実施日" %></th>
-          <th class="center"><%= "作業内容" %></th>
           <th class="center"><%= "植物名" %></th>
-          <th class="center"><%= "植物個体名" %></th>
           <th class="center"><%= "資材名" %></th>
-          <th class="center"><%= "資材消費量" %></th>
         </tr>
       </thead>
 
       <% @gardening_diaries.each do |gardening_diary| %>
         <tr>
           <td><%= link_to gardening_diary.work_name, user_gardening_diary_path(id: gardening_diary.id) %></td>
-          <td class="center"><%= l(gardening_diary.implementation_date, formats: :middle) if gardening_diary.implementation_date.present? %></td>
-          <td class="center"><%= gardening_diary.work_content %></td>
+          <td><%= l(gardening_diary.implementation_date, formats: :middle) if gardening_diary.implementation_date.present? %></td>
           <td class="center"><%= gardening_diary.plant_name %></td>
-          <td class="center"><%= gardening_diary.plant_individual_name %></td>
           <td class="center"><%= gardening_diary.material_name %></td>
           <td class="center">
             <%= link_to "編集", edit_user_gardening_diary_path(id: gardening_diary.id), remote: true, class: "btn btn-success", data: {"turbolinks"=>false} %>
