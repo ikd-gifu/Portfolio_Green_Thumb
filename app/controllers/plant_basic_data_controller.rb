@@ -4,7 +4,8 @@ class PlantBasicDataController < ApplicationController
 
   def index
     # @plant_basic_data = PlantBasicDatum.where(user_id: params[:id])
-    @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id]).paginate(page: params[:page], per_page: 3)
+    #@plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id]).paginate(page: params[:page], per_page: 3)
+    @plant_basic_data = current_user.plant_basic_data.paginate(page: params[:page], per_page: 10)
   end
 
   def show

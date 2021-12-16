@@ -7,8 +7,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-bottom: 1.2%;
 }
 
+.flexcontainer-lower {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
 /*天気表示テーブル*/
 
 .table-radius{

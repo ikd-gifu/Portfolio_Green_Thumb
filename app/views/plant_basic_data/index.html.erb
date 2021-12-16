@@ -7,15 +7,16 @@
   <div class="right">
     <%= link_to "基本情報新規作成", new_user_plant_basic_datum_path(user_id: params[:user_id]), class: "btn btn-info" %>
   </div>
-  <table class="table table-condensed table-hover" id="table-users">
-    <thead>
+
+  <table class="table-users table-hover">
+    <tbody>
       <tr>
         <th class="center"><%= "植物名" %></th>
         <th class="center"><%= "品種名" %></th>
         <th class="center"><%= "科名" %></th>
         <th class="center"><%= "原産地" %></th>
+        <th class="center"><%=  %></th>
       </tr>
-    </thead>
 
     <% @plant_basic_data.each do |plant_basic_datum| %>
       <tr>
@@ -30,6 +31,7 @@
         </td>
       </tr>
     <% end %>
+    </tbody>
   </table>
   <%= will_paginate @plant_basic_data, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
 </div>

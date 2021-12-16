@@ -3,7 +3,6 @@
 
 <div class="col-md-10 col-md-offset-1">
   <div class="flexcontainer">
-
     <table class="table-user-radius">
       <tbody>
         <tr>
@@ -24,7 +23,6 @@
         </tr>
       </tbody>
     </table>
-
     <table class="table-radius">
       <tbody>
         <tr>
@@ -52,6 +50,44 @@
         </tr>
       </tbody>
     </table>
-
   </div>
+
+  <div>
+    <table class="table-users table-hover">
+      <tbody>
+        <tr>
+          <th class="center"><%= "資材名" %></th>
+          <th class="center"><%= "規格・サイズ" %></th>
+          <th class="center"><%= "数量" %></th>
+          <th class="center"><%= "一覧ページ" %></th>
+        </tr>
+
+      <% @material_stock_tables.each do |material_stock_table| %>
+        <tr>
+          <td><%= link_to material_stock_table.material_name, user_material_stock_table_path(user_id: params[:id], id: material_stock_table.id) %></td>
+          <td class="center"><%= material_stock_table.material_size %></td>
+          <td class="center"><%= material_stock_table.material_quantity %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <table class="table-users table-hover" >
+        <tbody>
+          <tr>
+            <th class="center"><%= "作業名" %></th>
+            <th class="center"><%= "実施日" %></th>
+            <th class="center"><%= "植物名" %></th>
+          </tr>
+
+        <% @gardening_diaries.each do |gardening_diary| %>
+          <tr>
+            <td><%= link_to gardening_diary.work_name, user_gardening_diary_path(user_id: params[:id], id: gardening_diary.id) %></td>
+            <td><%= l(gardening_diary.implementation_date, formats: :middle) if gardening_diary.implementation_date.present? %></td>
+            <td class="center"><%= gardening_diary.plant_name %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+  </div>
+
 </div>

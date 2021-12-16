@@ -2,7 +2,8 @@ class MaterialStockTableController < ApplicationController
   before_action :authenticate_user! , only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
-    @material_stock_tables = MaterialStockTable.where(user_id: params[:user_id]).paginate(page: params[:page], per_page: 3)
+    # @material_stock_tables = MaterialStockTable.where(user_id: params[:user_id]).paginate(page: params[:page], per_page: 10)
+    @material_stock_tables = current_user.material_stock_tables.paginate(page: params[:page], per_page: 10)
   end
 
   def show

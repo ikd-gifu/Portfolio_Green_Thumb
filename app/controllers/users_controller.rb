@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user! , only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :set_user , only: [:show]
 
   def show
-    @user = User.find(params[:id])
+    @material_stock_tables = MaterialStockTable.where(user_id: params[:id]).order(updated_at: :DESC).limit(5)
+    @gardening_diaries = @user.gardening_diaries.order(implementation_date: :DESC).limit(5)
 
     @city = City.find_by(location_id: @user.location_id)
     @current_weather = CurrentWeather.new(city_id: @city.id)

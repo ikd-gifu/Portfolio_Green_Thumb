@@ -4,33 +4,35 @@
 <div class="col-md-10 col-md-offset-1">
   <%= will_paginate @material_stock_tables, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
   
-  <div class="right">
-    <%= link_to "資材在庫表新規作成", new_user_material_stock_table_path(user_id: params[:user_id]), class: "btn btn-info" %>
-  </div>
-  <table class="table table-condensed table-hover" id="table-users">
-    <thead>
-      <tr>
-        <th class="center"><%= "資材名" %></th>
-        <th class="center"><%= "規格・サイズ" %></th>
-        <th class="center"><%= "数量" %></th>
-        <th class="center"><%= "購入日" %></th>
-      </tr>
-    </thead>
+    <div class="right">
+      <%= link_to "資材在庫表新規作成", new_user_material_stock_table_path(user_id: params[:user_id]), class: "btn btn-info" %>
+    </div>
 
-    <% @material_stock_tables.each do |material_stock_table| %>
-      <tr>
-        <td><%= link_to material_stock_table.material_name, user_material_stock_table_path(id: material_stock_table.id) %></td>
-        <td class="center"><%= material_stock_table.material_size %></td>
-        <td class="center"><%= material_stock_table.material_quantity %></td>
-        <td class="center"><%= l(material_stock_table.material_purchase_date, formats: :middle) if material_stock_table.material_purchase_date.present? %></td>
-        <td class="center">
-          <%= link_to "編集", edit_user_material_stock_table_path(id: material_stock_table.id), remote: true, class: "btn btn-success" %>
-          <%= link_to "削除", user_material_stock_table_path(id: material_stock_table.id), method: :delete,
-              data: { confirm: "#{material_stock_table.material_name}を削除してよろしいですか？" }, class: "btn btn-danger" %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+    <table class="table-users table-hover">
+      <tbody>
+        <tr>
+          <th class="center"><%= "資材名" %></th>
+          <th class="center"><%= "規格・サイズ" %></th>
+          <th class="center"><%= "数量" %></th>
+          <th class="center"><%= "購入日" %></th>
+          <th class="center"><%=  %></th>
+        </tr>
+
+      <% @material_stock_tables.each do |material_stock_table| %>
+        <tr>
+          <td><%= link_to material_stock_table.material_name, user_material_stock_table_path(id: material_stock_table.id) %></td>
+          <td class="center"><%= material_stock_table.material_size %></td>
+          <td class="center"><%= material_stock_table.material_quantity %></td>
+          <td class="center"><%= l(material_stock_table.material_purchase_date, formats: :middle) if material_stock_table.material_purchase_date.present? %></td>
+          <td class="center">
+            <%= link_to "編集", edit_user_material_stock_table_path(id: material_stock_table.id), remote: true, class: "btn btn-success" %>
+            <%= link_to "削除", user_material_stock_table_path(id: material_stock_table.id), method: :delete,
+                data: { confirm: "#{material_stock_table.material_name}を削除してよろしいですか？" }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
   <%= will_paginate @material_stock_tables, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
 </div>
 

@@ -4,7 +4,7 @@ class PlantManagementSlipsController < ApplicationController
 
   def index
     @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
-    @plant_management_slips = PlantManagementSlip.where(plant_basic_datum_id: @plant_basic_data.ids).paginate(page: params[:page], per_page: 3)
+    @plant_management_slips = PlantManagementSlip.where(plant_basic_datum_id: @plant_basic_data.ids).paginate(page: params[:page], per_page: 10)
   end
 
   def new
