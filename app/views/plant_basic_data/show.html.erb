@@ -3,26 +3,35 @@
 <h1><%= @plant_basic_datum.plant_name %>の基本情報</h1>
 
 <div>
-  <table class="table table-bordered table-condensed table-hover" id="table-attendances">
-    <thead>
-      <tr>
-        <th>植物名</th>
-        <th>品種名</th>
-        <th>科名</th>
-        <th>学名</th>
-        <th>別名</th>
-        <th>原産地</th>
-      </tr>
-    </thead>
-
+  <table class="info-table-radius">
     <tbody>
       <tr>
-        <td><%= @plant_basic_datum.plant_name %></td>
-        <td><%= @plant_basic_datum.plant_breed_name %></td>
-        <td><%= @plant_basic_datum.plant_family_name %></td>
-        <td><%= @plant_basic_datum.plant_scientific_name %></td>
-        <td><%= @plant_basic_datum.plant_alias %></td>
-        <td><%= @plant_basic_datum.plant_place_of_origin %></td>
+        <th><h2>植物名</h2></th>
+        <td><h2><%= @plant_basic_datum.plant_name %></td>
+      </tr>
+      <tr>
+        <th><h2>品種名</h2></th>
+        <td><h2><%= @plant_basic_datum.plant_breed_name %></td>
+      </tr>
+      <tr>
+        <th><h2>別名</h2></th>
+        <td><h2><%= @plant_basic_datum.plant_alias %></td>
+      </tr>
+      <tr>
+        <th><h2>科名</h2></th>
+        <td><h2><%= @plant_basic_datum.plant_family_name %></td>
+      </tr>
+      <tr>
+        <th><h2>学名</h2></th>
+        <td><h2><%= @plant_basic_datum.plant_scientific_name %></td>
+      </tr>
+      <tr>
+        <th><h2>原産地</h2></th>
+        <td><h2><%= @plant_basic_datum.plant_place_of_origin %></td>
+      </tr>
+      <tr>
+        <th><h2>特徴・用途</h2></th>
+        <td><h2><%= @plant_basic_datum.characteristics_applications %></td>
       </tr>
     </tbody>
   </table>

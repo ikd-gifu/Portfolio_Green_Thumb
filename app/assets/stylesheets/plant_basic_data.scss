@@ -17,3 +17,84 @@
   margin: 15px 0;
   width: 30%;
 }
+
+/* 情報表示テーブル */
+
+.info-table-radius{
+	border-spacing: 0;
+	border-collapse: separate;
+  flex-basis: 40%;
+  margin: auto;
+}
+.info-table-radius th,.info-table-radius td{
+	border-top: 0px solid #02A21C;
+	border-left: 0px solid #02A21C;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.info-table-radius th > h1 {
+  font-size: 1.8em;
+  letter-spacing: -1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.info-table-radius td > h1 {
+  font-size: 1.8em;
+  letter-spacing: -1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.info-table-radius th > h2 {
+  font-size: 1.2em;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+.info-table-radius td > h2 {
+  font-size: 1.2em;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+.info-table-radius th{
+  height: 5px;
+	padding: 1px 10px;
+	background: #02A21C;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.info-table-radius tr:nth-child(even) th{
+	background: #62BBAB;
+}
+.info-table-radius td{
+  height: 1px;
+	padding: 2px 5px;
+	background: #FCFCFC;
+	color: #45823E;
+}
+.info-table-radius th:last-child,.info-table-radius td:last-child{
+	border-right: 0px solid #02A21C;
+}
+.info-table-radius tr:last-child th,.info-table-radius tr:last-child td{
+	border-bottom: 0px solid #02A21C;
+}
+.info-table-radius tr:first-child :first-child{
+	border-top-left-radius: 10px;
+}
+.info-table-radius tr:first-child :last-child{
+	border-top-right-radius: 10px;
+}
+.info-table-radius tr:last-child :first-child{
+	border-bottom-left-radius: 10px;
+}
+.info-table-radius tr:last-child :last-child{
+	border-bottom-right-radius: 10px;
+}
+.info-table-radius tr:not(:first-child) th,.info-table-radius tr:not(:first-child) td{
+	border-top:none;
+}

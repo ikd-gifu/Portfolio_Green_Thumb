@@ -11,18 +11,26 @@
         <div class="col-md-6 col-md-offset-3">
           <%= form_with(model: @plant_basic_datum, url: user_plant_basic_datum_path(@plant_basic_datum), local: true, method: :patch) do |f| %>
             
-
             <%= f.label :plant_name, "植物名", class: "label-basic-info" %>
             <%= f.text_field :plant_name, class: "form-control" %>
 
             <%= f.label :plant_breed_name, "品種名", class: "label-basic-info" %>
             <%= f.text_field :plant_breed_name, class: "form-control" %>
 
+            <%= f.label :plant_alias, "別名", class: "label-basic-info" %>
+            <%= f.text_field :plant_alias, class: "form-control" %>
+
             <%= f.label :plant_family_name, "科名", class: "label-basic-info" %>
             <%= f.text_field :plant_family_name, class: "form-control" %>
 
+            <%= f.label :plant_scientific_name, "学名", class: "label-basic-info" %>
+            <%= f.text_field :plant_scientific_name, class: "form-control" %>
+
             <%= f.label :plant_place_of_origin, "原産地", class: "label-basic-info" %>
             <%= f.text_field :plant_place_of_origin, class: "form-control" %>
+
+            <%= f.label :characteristics_applications, "特徴・用途", class: "label-basic-info" %>
+            <%= f.text_field :characteristics_applications, class: "form-control" %>
 
             <div class="center">
               <%= f.submit "更新", class: "btn btn-success btn-basic-info" %>
