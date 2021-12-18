@@ -3,30 +3,39 @@
 <h1><%= @plant_management_slip.plant_name %>の<%= @plant_management_slip.plant_individual_name %>の管理票</h1>
 
 <div>
-  <table class="table table-bordered table-condensed table-hover" id="table-attendances">
-    <thead>
-      <tr>
-        <th>植物名</th>
-        <th>植物個体名</th>
-        <th>価格</th>
-        <th>サイズ</th>
-        <th>数量</th>
-        <th>購入日</th>
-        <th>購入場所</th>
-        <th>栽培場所</th>
-      </tr>
-    </thead>
-
+  <table class="info-table-radius">
     <tbody>
       <tr>
-        <td><%= @plant_management_slip.plant_name %></td>
-        <td><%= @plant_management_slip.plant_individual_name %></td>
-        <td><%= @plant_management_slip.plant_price %></td>
-        <td><%= @plant_management_slip.plant_size %></td>
-        <td><%= @plant_management_slip.plant_quantity %></td>
-        <td><%= l(@plant_management_slip.plant_purchase_date, formats: :short) if @plant_management_slip.plant_purchase_date.present? %></td>
-        <td><%= @plant_management_slip.plant_purchase_location %></td>
-        <td><%= @plant_management_slip.cultivation_place %></td>
+        <th><h2>植物名</h2></th>
+        <td><h2><%= @plant_management_slip.plant_name %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>植物個体名</h2></th>
+        <td><h2><%= @plant_management_slip.plant_individual_name %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>価格</h2></th>
+        <td><h2><%= @plant_management_slip.plant_price %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>サイズ</h2></th>
+        <td><h2><%= @plant_management_slip.plant_size %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>数量</h2></th>
+        <td><h2><%= @plant_management_slip.plant_quantity %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>購入日</h2></th>
+        <td><h2><%= l(@plant_management_slip.plant_purchase_date, formats: :short) if @plant_management_slip.plant_purchase_date.present? %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>購入場所</h2></th>
+        <td><h2><%= @plant_management_slip.plant_purchase_location %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>栽培場所</h2></th>
+        <td><h2><%= @plant_management_slip.cultivation_place %></h2></td>
       </tr>
     </tbody>
   </table>

@@ -12,7 +12,7 @@
           <%= form_with(model: @plant_management_slip, url: user_plant_management_slip_path(@plant_management_slip), local: true, method: :patch) do |f| %>
             
             <%= f.label :plant_name, "植物名", class: "label-basic-info" %>
-            <%= f.text_field :plant_name, class: "form-control" %>
+            <%= f.collection_select(:plant_basic_datum_id, @plant_basic_data, :id, :plant_name, {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
 
             <%= f.label :plant_individual_name, "植物個体名", class: "label-basic-info" %>
             <%= f.text_field :plant_individual_name, class: "form-control" %>

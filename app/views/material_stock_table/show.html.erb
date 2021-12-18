@@ -3,26 +3,31 @@
 <h1><%= @material_stock_table.material_name %>の在庫表</h1>
 
 <div>
-  <table class="table table-bordered table-condensed table-hover" id="table-attendances">
-    <thead>
-      <tr>
-        <th>資材名</th>
-        <th>価格</th>
-        <th>規格・サイズ</th>
-        <th>数量</th>
-        <th>購入日</th>
-        <th>購入場所</th>
-      </tr>
-    </thead>
-
+  <table class="info-table-radius">
     <tbody>
       <tr>
-        <td><%= @material_stock_table.material_name %></td>
-        <td><%= @material_stock_table.material_price %></td>
-        <td><%= @material_stock_table.material_size %></td>
-        <td><%= @material_stock_table.material_quantity %></td>
-        <td><%= l(@material_stock_table.material_purchase_date, formats: :short) if @material_stock_table.material_purchase_date.present? %></td>
-        <td><%= @material_stock_table.material_purchase_location %></td>
+        <th><h2>資材名</h2></th>
+        <td><h2><%= @material_stock_table.material_name %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>価格</h2></th>
+        <td><h2><%= @material_stock_table.material_price %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>規格・サイズ</h2></th>
+        <td><h2><%= @material_stock_table.material_size %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>数量</h2></th>
+        <td><h2><%= @material_stock_table.material_quantity %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>購入日</h2></th>
+        <td><h2><%= l(@material_stock_table.material_purchase_date, formats: :short) if @material_stock_table.material_purchase_date.present? %></h2></td>
+      </tr>
+      <tr>
+        <th><h2>購入場所</h2></th>
+        <td><h2><%= @material_stock_table.material_purchase_location %></h2></td>
       </tr>
     </tbody>
   </table>
