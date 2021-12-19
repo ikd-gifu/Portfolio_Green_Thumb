@@ -3,6 +3,8 @@ ja:
     attributes:
       user:
         log_in: ログイン
+        name: 名前
+        location_id: 居住地域
         edit: 編集
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
