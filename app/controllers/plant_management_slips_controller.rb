@@ -23,7 +23,9 @@ class PlantManagementSlipsController < ApplicationController
       @plant_management_slip.update(plant_name: @plant_basic_datum.plant_name, plant_basic_datum_id: @plant_basic_datum.id)
       redirect_to user_plant_management_slips_path, notice: "植物管理票の新規作成に成功しました。"
     else
+      @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
       render :new
+      # redirect_to new_user_plant_management_slip_path(current_user), alert: "植物管理票を作成できませんでした。"
     end
   end
 
@@ -33,6 +35,8 @@ class PlantManagementSlipsController < ApplicationController
 
   def update
     if @plant_management_slip.update(plant_management_slip_params)
+      @plant_basic_data = PlantBasicDatum.find(@plant_management_slip.plant_basic_datum_id)
+      @plant_management_slip.update(plant_name: @plant_basic_data.plant_name)
       redirect_to user_plant_management_slips_path(current_user), notice: "#{@plant_management_slip.plant_name}の管理票を更新しました。"
     else
       redirect_to user_plant_management_slips_path(current_user), notice: "#{@plant_management_slip.plant_name}の管理票の更新に失敗しました。"

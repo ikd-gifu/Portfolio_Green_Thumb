@@ -1,6 +1,6 @@
 <% provide(:title, 'New PlatBasicDatum') %>
 
-<h1>植物基本情報新規作成</h1>
+<h1>植物基本情報　新規作成</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -8,10 +8,10 @@
 
       <%= f.hidden_field :user_id, value: current_user.id %>
 
-      <%= f.label :plant_name, "植物名", class: "label-login" %>
+      <%= f.label :plant_name, class: "label-login" %>
       <%= f.text_field :plant_name, class: 'form-control' %>
 
-      <%= f.label :plant_breed_name, "品種名", class: "label-login" %>
+      <%= f.label :plant_breed_name, class: "label-login" %>
       <%= f.text_field :plant_breed_name, class: 'form-control' %>
 
       <%= f.label :plant_alias, "別名", class: "label-basic-info" %>

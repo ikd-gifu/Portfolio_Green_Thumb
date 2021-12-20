@@ -1,0 +1,15 @@
+<% if @plant_management_slip.errors.any? %>
+  <div id="error_explanation">
+    <h2 class="alert alert-danger">
+      <%= I18n.t("errors.messages.not_saved",
+                 count: @plant_management_slip.errors.count,
+                 resource: @plant_management_slip.class.model_name.human.downcase)
+       %>
+    </h2>
+    <ul>
+      <% @plant_management_slip.errors.full_messages.each do |message| %>
+        <li class="devise-error-messages"><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

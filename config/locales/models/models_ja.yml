@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      plant_basic_data: 植物基本情報
+      plant_basic_datum: 植物基本情報
+      plant_management_slip: 植物管理票
+    attributes:
+        plant_basic_data:
+        plant_basic_datum:
+          plant_name: 植物名
+          plant_breed_name: 品種名
+          plant_family_name: 科名
+          plant_alias: 別名
+          plant_scientific_name: 学名
+          plant_place_of_origin: 原産地
+          characteristics_applications: 特徴・用途
+        plant_management_slip:
+          plant_individual_name: 植物個体名
+    errors:
+      models:
+        plant_basic_data:
+          attributes:
+            plant_name:
+              format: '%{message}'
+              taken: この%{attribute}は既に登録されています。
+        plant_management_slip:
+            plant_individual_name:
+              format: '%{message}'
+              taken: この%{attribute}は既に登録されています。
+          
