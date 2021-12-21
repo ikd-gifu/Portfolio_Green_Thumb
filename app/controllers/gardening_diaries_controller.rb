@@ -29,7 +29,10 @@ class GardeningDiariesController < ApplicationController
       @gardening_diary = @gardening_diary.update(plant_name: @plant_basic_datum.plant_name) unless @gardening_diary.plant_name == ""
       redirect_to user_gardening_diaries_path, notice: "園芸日誌の作成に成功しました。"
     else
-      redirect_to new_user_gardening_diary_path(current_user), alert: "園芸日誌を作成できませんでした。"
+      @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
+      @material_stock_table = MaterialStockTable.where(user_id: params[:user_id])
+      render :new
+      # redirect_to new_user_gardening_diary_path(current_user), alert: "園芸日誌を作成できませんでした。"
     end
   end
 

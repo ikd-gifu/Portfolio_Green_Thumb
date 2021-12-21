@@ -10,6 +10,7 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <%= form_with(model: @plant_basic_datum, url: user_plant_basic_datum_path(@plant_basic_datum), local: true, method: :patch) do |f| %>
+            <%= render "plant_basic_data/shared/error_messages", object: @plant_basic_datum %>
             
             <%= f.label :plant_name, "植物名", class: "label-basic-info" %>
             <%= f.text_field :plant_name, class: "form-control" %>

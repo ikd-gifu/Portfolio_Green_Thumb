@@ -4,6 +4,8 @@ ja:
       plant_basic_data: 植物基本情報
       plant_basic_datum: 植物基本情報
       plant_management_slip: 植物管理票
+      material_stock_table: 資材在庫表
+      gardening_diary: 園芸日誌
     attributes:
         plant_basic_data:
         plant_basic_datum:
@@ -16,6 +18,11 @@ ja:
           characteristics_applications: 特徴・用途
         plant_management_slip:
           plant_individual_name: 植物個体名
+          plant_basic_datum: 植物名
+        material_stock_table:
+          material_name: 資材名
+        gardening_diary:
+          work_name: 作業名
     errors:
       models:
         plant_basic_data:

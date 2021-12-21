@@ -20,8 +20,8 @@ class MaterialStockTableController < ApplicationController
       redirect_to user_material_stock_table_index_path, notice: "資材在庫表の作成に成功しました。"
     else
       #flash[:alert] = "資材在庫表を作成できませんでした。"
-      #render :new
-      redirect_to new_user_material_stock_table_path(current_user), alert: "資材在庫表を作成できませんでした。"
+      render :new
+      # redirect_to new_user_material_stock_table_path(current_user), alert: "資材在庫表を作成できませんでした。"
     end
   end
 

@@ -1,13 +1,13 @@
-<% if @plant_basic_datum.errors.any? %>
+<% if @gardening_diary.errors.any? %>
   <div id="error_explanation">
     <h2 class="alert alert-danger">
       <%= I18n.t("errors.messages.not_saved",
-                 count: @plant_basic_datum.errors.count,
-                 resource: @plant_basic_datum.class.model_name.human.downcase)
+                 count: @gardening_diary.errors.count,
+                 resource: @gardening_diary.class.model_name.human.downcase)
        %>
     </h2>
     <ul>
-      <% @plant_basic_datum.errors.full_messages.each do |message| %>
+      <% @gardening_diary.errors.full_messages.each do |message| %>
         <li class="devise-error-messages"><%= message %></li>
       <% end %>
     </ul>

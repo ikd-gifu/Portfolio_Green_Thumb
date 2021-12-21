@@ -4,6 +4,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_with(model: @gardening_diary, url: user_gardening_diaries_path(current_user), local: true, method: :post) do |f| %>
+      <%= render "gardening_diaries/shared/error_messages", object: @gardening_diary %>
 
       <%= f.hidden_field :user_id, value: current_user.id %>
 

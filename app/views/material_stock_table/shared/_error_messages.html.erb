@@ -1,0 +1,15 @@
+<% if @material_stock_table.errors.any? %>
+  <div id="error_explanation">
+    <h2 class="alert alert-danger">
+      <%= I18n.t("errors.messages.not_saved",
+                 count: @material_stock_table.errors.count,
+                 resource: @material_stock_table.class.model_name.human.downcase)
+       %>
+    </h2>
+    <ul>
+      <% @material_stock_table.errors.full_messages.each do |message| %>
+        <li class="devise-error-messages"><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

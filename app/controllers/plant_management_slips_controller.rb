@@ -17,9 +17,10 @@ class PlantManagementSlipsController < ApplicationController
 
   def create
     @plant_management_slip = PlantManagementSlip.new(plant_management_slip_params)
-    @plant_basic_datum = PlantBasicDatum.find(params[:plant_management_slip][:plant_basic_datum_id])
+    # @plant_basic_datum = PlantBasicDatum.find(params[:plant_management_slip][:plant_basic_datum_id])
     # @plant_management_slip.update(plant_name: @plant_basic_datum.plant_name)
     if @plant_management_slip.save
+      @plant_basic_datum = PlantBasicDatum.find(params[:plant_management_slip][:plant_basic_datum_id])
       @plant_management_slip.update(plant_name: @plant_basic_datum.plant_name, plant_basic_datum_id: @plant_basic_datum.id)
       redirect_to user_plant_management_slips_path, notice: "植物管理票の新規作成に成功しました。"
     else
