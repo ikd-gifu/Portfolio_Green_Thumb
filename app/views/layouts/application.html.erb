@@ -27,8 +27,11 @@
     <!-- headerの内容がこの1行で収まる -->
       <%= render 'layouts/header' %>
       <div class="container">
-        <% flash.each do |name, msg| %>
-          <p class="p-alert alert alert-<%= name %>"><%= msg.html_safe %></p>
+        <% flash.each do |key, msg| %>
+          <div class="alert alert alert-<%= bootstrap_alert(key) %>">
+            <%= msg.html_safe %>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
         <% end %>
 
         <!-- <% if notice.present? %>

@@ -17,7 +17,8 @@ class MaterialStockTableController < ApplicationController
   def create
     @material_stock_table = MaterialStockTable.new(material_stock_table_params)
     if @material_stock_table.save
-      redirect_to user_material_stock_table_index_path, notice: "資材在庫表の作成に成功しました。"
+      flash[:success] = "#{@material_stock_table.material_name}の資材在庫表の作成に成功しました。"
+      redirect_to user_material_stock_table_index_path
     else
       #flash[:alert] = "資材在庫表を作成できませんでした。"
       render :new
@@ -32,16 +33,19 @@ class MaterialStockTableController < ApplicationController
   def update
     @material_stock_table = MaterialStockTable.find(params[:id])
     if @material_stock_table.update(material_stock_table_params)
-      redirect_to user_material_stock_table_index_path(current_user), notice: "#{@material_stock_table.material_name}の基本情報を更新しました。"
+      flash[:success] = "#{@material_stock_table.material_name}の資材在庫表を更新しました。"
+      redirect_to user_material_stock_table_index_path(current_user)
     else
-      redirect_to user_material_stock_table_index_path(current_user), alert: "基本情報の更新に失敗しました。"
+      flash[:danger] = "資材在庫表の更新は失敗しました。"
+      redirect_to user_material_stock_table_index_path(current_user)
     end
   end
 
   def destroy
     @material_stock_table = MaterialStockTable.find(params[:id])
     @material_stock_table.destroy
-    redirect_to user_material_stock_table_index_path(current_user), notice: "#{@material_stock_table.material_name}のデータを削除しました。"
+    flash[:success] = "#{@material_stock_table.material_name}の資材在庫表を削除しました。"
+    redirect_to user_material_stock_table_index_path(current_user)
   end
 
   private

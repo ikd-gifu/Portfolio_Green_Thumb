@@ -21,13 +21,13 @@ class GardeningDiariesController < ApplicationController
   end
 
   def create
-    
     @gardening_diary = GardeningDiary.new(gardening_diary_params)
     @plant_basic_datum = PlantBasicDatum.find(@gardening_diary.plant_name) unless @gardening_diary.plant_name == ""
     # @gardening_diary = @gardening_diary.update(plant_name: @plant_basic_datum.plant_name)
     if @gardening_diary.save
       @gardening_diary = @gardening_diary.update(plant_name: @plant_basic_datum.plant_name) unless @gardening_diary.plant_name == ""
-      redirect_to user_gardening_diaries_path, notice: "園芸日誌の作成に成功しました。"
+      flash[:success] = "#{@gardening_diary.work_name}の園芸日誌の作成に成功しました。"
+      redirect_to user_gardening_diaries_path
     else
       @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
       @material_stock_table = MaterialStockTable.where(user_id: params[:user_id])
@@ -37,9 +37,7 @@ class GardeningDiariesController < ApplicationController
   end
 
   def edit
-    
     @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
-    
     @material_stock_table = MaterialStockTable.where(user_id: params[:user_id])
     @gardening_diary = GardeningDiary.find(params[:id])
     @plant_management_slips = PlantManagementSlip.where(plant_basic_datum_id: @plant_basic_data.ids, plant_name: @gardening_diary.plant_name)
@@ -50,16 +48,19 @@ class GardeningDiariesController < ApplicationController
     # @plant_basic_datum = PlantBasicDatum.find(@gardening_diary.plant_name)
     if @gardening_diary.update(gardening_diary_params)
       # @gardening_diary.update(plant_name: @plant_basic_datum.plant_name)
-      redirect_to user_gardening_diaries_path(current_user), notice: "#{@gardening_diary.work_name}を更新しました。"
+      flash[:success] = "#{@gardening_diary.work_name}の園芸日誌を更新しました。"
+      redirect_to user_gardening_diaries_path(current_user)
     else
-      redirect_to user_gardening_diaries_path(current_user), alert: "園芸日誌の更新に失敗しました。"
+      flash[:danger] = "園芸日誌の更新は失敗しました。"
+      redirect_to user_gardening_diaries_path(current_user)
     end
   end
 
   def destroy
     @gardening_diary = GardeningDiary.find(params[:id])
     @gardening_diary.destroy
-    redirect_to user_gardening_diaries_path(current_user), notice: "#{@gardening_diary.work_name}のデータを削除しました。"
+    flash[:success] = "#{@gardening_diary.work_name}の園芸日誌を削除しました。"
+    redirect_to user_gardening_diaries_path(current_user)
   end
 
   private

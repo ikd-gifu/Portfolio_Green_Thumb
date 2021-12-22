@@ -19,7 +19,7 @@ class PlantBasicDataController < ApplicationController
   def create
     @plant_basic_datum = PlantBasicDatum.new(plant_basic_datum_params)
     if @plant_basic_datum.save
-      flash[:success] = '植物基本情報の作成に成功しました。'
+      flash[:success] = "#{@plant_basic_datum.plant_name}の基本情報の作成に成功しました。"
       redirect_to user_plant_basic_data_path
       # flash[:success] = '植物基本情報の作成に成功しました。'
     else
@@ -47,7 +47,7 @@ class PlantBasicDataController < ApplicationController
   def destroy
     @plant_basic_datum = PlantBasicDatum.find(params[:id])
     @plant_basic_datum.destroy
-    flash[:success] = "#{@plant_basic_datum.plant_name}のデータを削除しました。"
+    flash[:success] = "#{@plant_basic_datum.plant_name}の基本情報を削除しました。"
     redirect_to user_plant_basic_data_path(current_user)
   end
 

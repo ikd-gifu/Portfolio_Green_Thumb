@@ -22,7 +22,8 @@ class PlantManagementSlipsController < ApplicationController
     if @plant_management_slip.save
       @plant_basic_datum = PlantBasicDatum.find(params[:plant_management_slip][:plant_basic_datum_id])
       @plant_management_slip.update(plant_name: @plant_basic_datum.plant_name, plant_basic_datum_id: @plant_basic_datum.id)
-      redirect_to user_plant_management_slips_path, notice: "植物管理票の新規作成に成功しました。"
+      flash[:success] = "#{@plant_management_slip.plant_name}の管理票の新規作成に成功しました。"
+      redirect_to user_plant_management_slips_path
     else
       @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
       render :new
@@ -38,15 +39,18 @@ class PlantManagementSlipsController < ApplicationController
     if @plant_management_slip.update(plant_management_slip_params)
       @plant_basic_data = PlantBasicDatum.find(@plant_management_slip.plant_basic_datum_id)
       @plant_management_slip.update(plant_name: @plant_basic_data.plant_name)
-      redirect_to user_plant_management_slips_path(current_user), notice: "#{@plant_management_slip.plant_name}の管理票を更新しました。"
+      flash[:success] = "#{@plant_management_slip.plant_name}の管理票を更新しました。"
+      redirect_to user_plant_management_slips_path(current_user)
     else
-      redirect_to user_plant_management_slips_path(current_user), notice: "#{@plant_management_slip.plant_name}の管理票の更新に失敗しました。"
+      flash[:danger] = "#{@plant_management_slip.plant_name}の管理票の更新は失敗しました。"
+      redirect_to user_plant_management_slips_path(current_user)
     end
   end
-
+  
   def destroy
     @plant_management_slip.destroy
-    redirect_to user_plant_management_slips_path(current_user), notice: "#{@plant_management_slip.plant_name}の#{@plant_management_slip.plant_individual_name}の管理票を削除しました。"
+    flash[:success] = "#{@plant_management_slip.plant_name}の#{@plant_management_slip.plant_individual_name}の管理票を削除しました。"
+    redirect_to user_plant_management_slips_path(current_user)
   end
 
   private
