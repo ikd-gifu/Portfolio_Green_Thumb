@@ -77,3 +77,25 @@
 .table-radius tr:not(:first-child) th,.table-radius tr:not(:first-child) td{
 	border-top:none;
 }
+
+/*検索機能*/
+
+.textlines {
+  border: 2px solid #0a0;  /* 枠線 */
+  border-radius: 0.67em;   /* 角丸 */
+  padding: 0.5em;          /* 内側の余白量 */
+  // background-color: snow;  /* 背景色 */
+  width: 20em;             /* 横幅 */
+  // height: 120px;           /* 高さ */
+  font-size: 1em;          /* 文字サイズ */
+  color: black;
+  line-height: 1.2;        /* 行の高さ */
+}
+
+.searchtext {
+  border-radius: 0.5em;
+  padding: 0.4em;
+  background-color: #0a0;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}

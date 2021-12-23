@@ -6,7 +6,12 @@ class GardeningDiariesController < ApplicationController
     @city = City.find_by(location_id: @user.location_id)
     @current_weather = CurrentWeather.where(city_id: @city.id).order(updated_at: :DESC).limit(1).take
     # @gardening_diaries = current_user.gardening_diaries.order(implementation_date: :DESC).limit(10)
-    @gardening_diaries = @user.gardening_diaries.order(implementation_date: :DESC).paginate(page: params[:page], per_page: 5)
+    @gardening_diaries = @user.gardening_diaries.order(implementation_date: :DESC).paginate(page: params[:page], per_page: 5).search(params[:search])
+    if params[:search].present?
+      @text = "「#{params[:search]}」の検索結果"
+    else
+      @text = "#{@user.name}の園芸日誌　一覧"
+    end
   end
 
   def show
@@ -61,6 +66,9 @@ class GardeningDiariesController < ApplicationController
     @gardening_diary.destroy
     flash[:success] = "#{@gardening_diary.work_name}の園芸日誌を削除しました。"
     redirect_to user_gardening_diaries_path(current_user)
+  end
+
+  def search
   end
 
   private
