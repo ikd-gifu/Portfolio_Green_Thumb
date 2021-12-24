@@ -31,10 +31,10 @@
               
                 <% if @plant_management_slips.blank? %><!-- １ -->
                   <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
-                  <%= f.select(:plant_individual_name, [], {:include_blank => "植物個体名を選択してください1"}, {class: 'form-control'}) %>
+                  <%= f.select(:plant_individual_name, [], {:include_blank => "植物個体名を選択してください"}, {class: 'form-control'}) %>
                 <% else %>
                   <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %><!-- ２ -->
-                  <%= f.collection_select(:plant_individual_name, @plant_management_slips, :plant_individual_name, :plant_individual_name, {:include_blank => "植物名を選択してください2"}, {class: 'form-control'}) %>
+                  <%= f.collection_select(:plant_individual_name, @plant_management_slips, :plant_individual_name, :plant_individual_name, {:include_blank => "植物名を選択してください"}, {class: 'form-control'}) %>
                 <% end %>
               
             </div>
@@ -45,7 +45,7 @@
               <div id="selected_plant_management_slip">
                 
                 <%= f.label :plant_individual_name, "植物個体名", class: "label-login" %>
-                <%= f.collection_select(:plant_individual_name, plant_basic_datum.plant_management_slips, :plant_individual_name, :plant_individual_name, {:include_blank => "植物個体名を選択してください3"}, {class: 'form-control'}) %>
+                <%= f.collection_select(:plant_individual_name, plant_basic_datum.plant_management_slips, :plant_individual_name, :plant_individual_name, {:include_blank => "植物個体名を選択してください"}, {class: 'form-control'}) %>
               
               </div>
               </template>

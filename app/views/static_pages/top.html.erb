@@ -7,7 +7,7 @@
     <h1>Green Thumb</h1>
     <p>園芸作業・資材管理ダイアリー</p>
     <% if user_signed_in? %> <%# この行を追加する %>
-      <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "btn btn-lg btn-primary" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-lg btn-primary" %>
     <% else %>
       <%= link_to "アカウント登録", new_user_registration_path, class: "btn btn-lg btn-primary" %>
     <% end %> <%# この行を追加する %>

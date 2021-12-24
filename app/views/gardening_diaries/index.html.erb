@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, "GDs") %>
 <!--<h1><%= @user.name %>の園芸日誌　一覧</h1>-->
 <h1><%= @text %></h1>
 
@@ -43,7 +43,7 @@
         <td>
           <h2 class="searchtext">作業名検索（あいまい検索）</h2>
             <%= form_tag(user_gardening_diaries_path, :method => 'get' ) do %>
-              <%= text_field_tag 'search', '', class: "textlines", placeholder: '作業名を入力したください' %>
+              <%= text_field_tag 'search', '', class: "textlines", placeholder: '作業名を入力してください' %>
               <%= submit_tag '検索', :work_name => nil, class: "btn btn-success" %>
             <% end %>
         </td>
