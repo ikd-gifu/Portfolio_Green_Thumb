@@ -43,7 +43,7 @@
         <td>
           <h2 class="searchtext">作業名検索（あいまい検索）</h2>
             <%= form_tag(user_gardening_diaries_path, :method => 'get' ) do %>
-              <%= text_field_tag "search", "作業名を入力したください", {class: "textlines"} %>
+              <%= text_field_tag 'search', '', class: "textlines", placeholder: '作業名を入力したください' %>
               <%= submit_tag '検索', :work_name => nil, class: "btn btn-success" %>
             <% end %>
         </td>
