@@ -1,7 +1,7 @@
-<% provide(:title, 'Edit') %>
+<% provide(:title, 'Edit Delete') %>
 
 <div class="row">
-  <h1><%= current_user.name %> の<%= t("activerecord.attributes.user.edit") %></h1>
+  <h1><%= current_user.name %> の<%= t("activerecord.attributes.user.edit") %>・削除</h1>
   <!--<h1><%= resource_name.to_s.humanize %><%= t("activerecord.attributes.user.edit") %></h1>-->
 
     <div class="col-md-6 col-md-offset-3">
@@ -51,10 +51,12 @@
           <%= f.submit t(".update"), class: "btn btn-primary btn-block btn-signup" %>
         </div>
       <% end %>
+    </div>
 
-      <!-- <h3><%= t(".cancel_my_account") %></h3>
+    <div class="col-md-6 col-md-offset-3">
+      <h1><%= t(".cancel_my_account") %></h1>
 
-      <p><%= t(".unhappy?") %> <%= button_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p> -->
+      <p class="center"><!--<%= t(".unhappy?") %>--> <%= button_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: "#{@user.name}さんのアカウントを削除してよろしいですか?" }, method: :delete, class: "btn btn-block btn-danger" %></p>
 
       <%= link_to t("users.shared.links.back"), :back, class: "link" %>
     </div>

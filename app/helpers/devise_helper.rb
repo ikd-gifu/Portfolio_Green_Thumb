@@ -9,6 +9,8 @@ module DeviseHelper
       "warning"
     when "danger"
       "danger"
+    when "alert"
+      "danger"
     end
   end
 end
