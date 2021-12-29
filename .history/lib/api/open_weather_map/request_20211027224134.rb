@@ -8,14 +8,13 @@ module Api
           id: location_id,
           units: 'metric',
           lang: 'ja',
-          appid: 'OPEN_WEATHER_MAP_API'
+          appid: ENV['OPEN_WEATHER_MAP_API']
         }
       end
 
       def request
         client = HTTPClient.new
-        # request = client.get(ENV['URI'], query)
-        request = client.get('https://api.openweathermap.org/data/2.5/weather', query)
+        request = client.get(ENV['URI'], query)
         JSON.parse(request.body)
       end
 
