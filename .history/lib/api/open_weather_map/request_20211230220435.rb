@@ -8,7 +8,7 @@ module Api
           id: location_id,
           units: 'metric',
           lang: 'ja',
-          appid: ENV['OPEN_WEATHER_MAP_API']
+          appid: 'OPEN_WEATHER_MAP_API'
         }
       end
 
