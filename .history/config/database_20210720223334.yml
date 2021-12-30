@@ -50,7 +50,6 @@ test:
 #
 production:
   <<: *default
-  encoding: utf8
   database: green_thumb_production
   username: green_thumb
   password: <%= ENV['GREEN_THUMB_DATABASE_PASSWORD'] %>
