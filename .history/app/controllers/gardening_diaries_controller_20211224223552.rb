@@ -27,10 +27,9 @@ class GardeningDiariesController < ApplicationController
 
   def create
     @gardening_diary = GardeningDiary.new(gardening_diary_params)
-    # @plant_basic_datum = PlantBasicDatum.find(@gardening_diary.plant_name) unless @gardening_diary.plant_name == ""
+    @plant_basic_datum = PlantBasicDatum.find(@gardening_diary.plant_name) unless @gardening_diary.plant_name == ""
     # @gardening_diary = @gardening_diary.update(plant_name: @plant_basic_datum.plant_name)
     if @gardening_diary.save
-      @plant_basic_datum = PlantBasicDatum.find(@gardening_diary.plant_name) unless @gardening_diary.plant_name == ""
       @gardening_diary = @gardening_diary.update(plant_name: @plant_basic_datum.plant_name) unless @gardening_diary.plant_name == ""
       flash[:success] = "#{@gardening_diary.work_name}の園芸日誌の作成に成功しました。"
       redirect_to user_gardening_diaries_path
