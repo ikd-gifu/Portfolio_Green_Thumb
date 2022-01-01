@@ -49,8 +49,6 @@ class GardeningDiariesController < ApplicationController
         @plant_basic_data = PlantBasicDatum.where(user_id: params[:user_id])
         @material_stock_table = MaterialStockTable.where(user_id: params[:user_id])
         render :new
-      end
-    end
   end
 
   def edit

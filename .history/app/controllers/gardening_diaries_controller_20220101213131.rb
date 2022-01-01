@@ -50,7 +50,6 @@ class GardeningDiariesController < ApplicationController
         @material_stock_table = MaterialStockTable.where(user_id: params[:user_id])
         render :new
       end
-    end
   end
 
   def edit
